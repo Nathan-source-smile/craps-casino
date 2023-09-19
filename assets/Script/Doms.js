@@ -1,5 +1,3 @@
-
-
 export default cc.Class({
     extends: cc.Component,
 
