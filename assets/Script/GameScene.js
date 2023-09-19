@@ -75,7 +75,7 @@ cc.Class({
         this._availableBets = availableBets;
         this._betList = [];
     },
-
+    
     onRollClick() {
         this._betList = [];
         let betIds = getRandomItems(this._availableBets, 3);
@@ -124,6 +124,10 @@ cc.Class({
         this._availableBets = availableBets;
         this._availableComes = availableComes;
         this._availableDComes = availableDComes;
+    },
+
+    onChipClick (  ) {
+
     },
 
     // called every frame
