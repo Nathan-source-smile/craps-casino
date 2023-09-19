@@ -2,7 +2,7 @@ import BettingArea from "./BettingArea";
 import PropositionArea from "./PropositionArea";
 import Doms from "./Doms";
 import { loadImgAtlas } from "./AssetLoader";
-import TopBar from "./Topbar";
+import TopBar from "./TopBar";
 import { POINTS } from "./Common/Constants";
 import { ClientCommService } from "./ClientCommService";
 
