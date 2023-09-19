@@ -5,6 +5,7 @@ import { loadImgAtlas } from "./AssetLoader";
 import TopBar from "./TopBar";
 import { POINTS } from "./Common/Constants";
 import { ClientCommService } from "./ClientCommService";
+import GlobalVariables from "./GlobalVariables";
 
 
 export let GameScene;
@@ -28,19 +29,19 @@ cc.Class({
             default: null,
             type: cc.Prefab,
         },
-        chip2: {
-            default: null,
-            type: cc.Prefab,
-        },
-        chip3: {
-            default: null,
-            type: cc.Prefab,
-        },
-        chip4: {
-            default: null,
-            type: cc.Prefab,
-        },
         chip5: {
+            default: null,
+            type: cc.Prefab,
+        },
+        chip25: {
+            default: null,
+            type: cc.Prefab,
+        },
+        chip100: {
+            default: null,
+            type: cc.Prefab,
+        },
+        chip500: {
             default: null,
             type: cc.Prefab,
         },

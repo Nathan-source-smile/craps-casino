@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "chip1",
+    "_name": "chip500",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -21,10 +21,13 @@
     "_components": [
       {
         "__id__": 2
+      },
+      {
+        "__id__": 3
       }
     ],
     "_prefab": {
-      "__id__": 3
+      "__id__": 4
     },
     "_opacity": 255,
     "_color": {
@@ -48,8 +51,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -550,
-        150,
+        0,
+        -110.883,
         0,
         0,
         0,
@@ -89,7 +92,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "59773914-da13-4d0f-86bc-73f7c31c7c79"
+      "__uuid__": "9273a1fc-0978-49e6-9add-394b00855762"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -106,6 +109,17 @@
     "_id": ""
   },
   {
+    "__type__": "46667/qYw1Nd6PVPBjBJc9P",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "coin": 500,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -113,7 +127,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "f3KatoktJMQIy/I8AOJPhe",
+    "fileId": "",
     "sync": false
   }
 ]
