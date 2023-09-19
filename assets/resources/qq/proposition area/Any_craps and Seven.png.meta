@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.4",
+  "ver": "2.3.7",
   "uuid": "3f586348-537d-4c99-a6de-5aaf05bb37c4",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "Any_craps and Seven": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "8733b66c-9f05-4421-9aca-0097b51f3c13",
+      "importer": "sprite-frame",
       "rawTextureUuid": "3f586348-537d-4c99-a6de-5aaf05bb37c4",
       "trimType": "auto",
       "trimThreshold": 1,

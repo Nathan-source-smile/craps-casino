@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.4",
+  "ver": "2.3.7",
   "uuid": "a146b58c-94f8-43bd-af56-a6bcad288276",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "placebet and buybet": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "a3db01d0-e334-4f87-94da-f994a4b45efc",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a146b58c-94f8-43bd-af56-a6bcad288276",
       "trimType": "auto",
       "trimThreshold": 1,

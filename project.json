@@ -1,7 +1,9 @@
 {
   "engine": "cocos2d-html5",
   "packages": "packages",
-  "version": "2.3.2",
+  "version": "2.4.11",
   "name": "Craps",
-  "id": "c2241566-3b91-41f9-ac5f-91bfe3fcae87"
+  "id": "c2241566-3b91-41f9-ac5f-91bfe3fcae87",
+  "description": "",
+  "isNew": false
 }
