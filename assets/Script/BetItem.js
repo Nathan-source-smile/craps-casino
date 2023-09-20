@@ -13,14 +13,27 @@ cc.Class({
     },
 
     onLoad() {
+        // Enable mouse input events
+        this.node.on(cc.Node.EventType.MOUSE_ENTER, this.onMouseEnter, this);
+        this.node.on(cc.Node.EventType.MOUSE_LEAVE, this.onMouseLeave, this);
         this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
     },
 
     start1() {
     },
 
+    onMouseEnter(event) {
+        // Handle hover enter event
+        console.log("Mouse entered!");
+    },
+
+    onMouseLeave(event) {
+        // Handle hover leave event
+        console.log("Mouse left!");
+    },
+
     onTouchStart(event) {
-        if(GlobalVariables.chip !== -1){
+        if (GlobalVariables.chip !== -1) {
             console.log(GlobalVariables.chip);
         } else {
             console.log("The betting option is not available.");

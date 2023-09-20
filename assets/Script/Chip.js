@@ -30,7 +30,14 @@ cc.Class({
 
     onDoubleTouch(event) {
         GlobalVariables.chip = this.coin;
-        // console.log(GlobalVariables.chip);
+        console.log(GlobalVariables.chip);
+    },
+
+    // called every frame
+    update: function (dt) {
+        if(GlobalVariables.chip!==this.coin){
+            console.log("sss")
+        }
     },
 
     isListInArray(arr, list) {
@@ -40,6 +47,6 @@ cc.Class({
             }
         }
         return false;
-    }
+    },
 
 });
