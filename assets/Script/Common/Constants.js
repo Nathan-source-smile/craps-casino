@@ -27,6 +27,7 @@ export const BET_LIST = [
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "1:1 on come out 7/11 or making point"
     },
     {
         id: 1,
@@ -34,6 +35,7 @@ export const BET_LIST = [
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "1 rolled bet. 30:1.",
     },
     {
         id: 2,
@@ -41,6 +43,7 @@ export const BET_LIST = [
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "1:1 on come out 7/11 or making come out",
     },
     {
         id: 3,
@@ -48,6 +51,7 @@ export const BET_LIST = [
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "1:1 on come out 2/3 or non come out 7.",
     },
     {
         id: 4,
@@ -76,6 +80,7 @@ export const BET_LIST = [
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "1:1 if 6 is rolled before 7.",
     },
     {
         id: 8,
@@ -83,6 +88,7 @@ export const BET_LIST = [
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "1:1 if 8 is rolled before 7.",
     },
     {
         id: 9,
@@ -90,6 +96,7 @@ export const BET_LIST = [
         pay_rate: 10,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "9:1 if rolled before 7 or easy 6.",
     },
     {
         id: 10,
@@ -97,6 +104,7 @@ export const BET_LIST = [
         pay_rate: 10,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "9:1 if rolled before 7 or easy 8.",
     },
     {
         id: 11,
@@ -104,6 +112,7 @@ export const BET_LIST = [
         pay_rate: 8,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "7:1 if rolled before 7 or easy 4.",
     },
     {
         id: 12,
@@ -111,6 +120,7 @@ export const BET_LIST = [
         pay_rate: 8,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "7:1 if rolled before 7 or easy 10.",
     },
     {
         id: 13,
@@ -118,6 +128,7 @@ export const BET_LIST = [
         pay_rate: [1.83, 1.67, 1.5],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "1:2 on 4/10. 2:3 on 5/9. 5:6 on 6/8.",
     },
     {
         id: 14,
@@ -153,6 +164,7 @@ export const BET_LIST = [
         pay_rate: [2, 3],
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
+        rule: "1 rolled bet. 1:1 on 3/4/9/10/11. 2:1 on 2/12.",
     },
     {
         id: 19,
@@ -160,6 +172,7 @@ export const BET_LIST = [
         pay_rate: 31,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
+        rule: "1 rolled bet. 30:1.",
     },
     {
         id: 20,
@@ -167,6 +180,7 @@ export const BET_LIST = [
         pay_rate: 31,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
+        rule: "1 rolled bet. 30:1.",
     },
     {
         id: 21,
@@ -174,6 +188,7 @@ export const BET_LIST = [
         pay_rate: 16,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
+        rule: "1 rolled bet. 15:1.",
     },
     {
         id: 22,
@@ -181,6 +196,7 @@ export const BET_LIST = [
         pay_rate: 16,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
+        rule: "1 rolled bet. 15:1.",
     },
     {
         id: 23,
@@ -188,6 +204,7 @@ export const BET_LIST = [
         pay_rate: 5,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
+        rule: "1 rolled bet. 4:1.",
     },
     {
         id: 24,
@@ -195,5 +212,14 @@ export const BET_LIST = [
         pay_rate: 8,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
+        rule: "1 rolled bet. 7:1 on 2/3/12.",
+    },
+    {
+        id: 25,
+        name: "HORN",
+        pay_rate: [16, 31],
+        commission: 0,
+        type: BET_TYPES.ONE_ROLL,
+        rule: "1 rolled bet. 15:1 on 3:11. 30:1 on 2/12",
     },
 ]
