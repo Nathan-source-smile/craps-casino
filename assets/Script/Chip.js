@@ -31,12 +31,31 @@ cc.Class({
     onDoubleTouch(event) {
         GlobalVariables.chip = this.coin;
         console.log(GlobalVariables.chip);
+        const pos = this.getPosition();
+        this.moveToPos(0.1, 20, pos.y);
+        let pos1 = this.getPosition();
+        console.log(pos1.x, pos1.y);
+    },
+
+    moveToPos(d, x, y) {
+        // console.log(this.node);
+        this.node.stopAllActions();
+        cc.tween(this.node)
+            .to(d, { x: x, y: y })
+            .start();
+    },
+
+    getPosition() {
+        return this.node.position;
     },
 
     // called every frame
     update: function (dt) {
-        if(GlobalVariables.chip!==this.coin){
-            console.log("sss")
+        if (GlobalVariables.chip !== this.coin) {
+            let pos1 = this.getPosition();
+            console.log("sss", this.coin, pos1.x, pos1.y);
+            // this.moveToPos(0.1, 0, pos1.y);
+            this.node.position = cc.v2(0, pos1.y);
         }
     },
 
