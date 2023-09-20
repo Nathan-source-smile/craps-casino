@@ -23332,7 +23332,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 342.07,
-      "height": 50.4
+      "height": 25.2
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -23344,7 +23344,7 @@
       "ctor": "Float64Array",
       "array": [
         -205.945,
-        -324.238,
+        -331,
         0,
         0,
         0,
@@ -23386,7 +23386,7 @@
     "_string": "FIELD - 1: roll bet. 1:1 on 3/4/9/10/11. 2:1 on 2/12.",
     "_N$string": "FIELD - 1: roll bet. 1:1 on 3/4/9/10/11. 2:1 on 2/12.",
     "_fontSize": 18,
-    "_lineHeight": 40,
+    "_lineHeight": 20,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "ec3dd456-bcfc-435a-8fc4-34b3134901d3"
