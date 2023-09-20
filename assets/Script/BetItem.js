@@ -1,7 +1,7 @@
 import { ClientCommService } from "./ClientCommService";
 import GlobalVariables from "./GlobalVariables";
 
-cc.Class({
+export default cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -15,27 +15,26 @@ cc.Class({
     onLoad() {
         this.node.opacity = 0;
         // Enable mouse input events
-        this.node.on(cc.Node.EventType.MOUSE_ENTER, this.onMouseEnter, this);
-        this.node.on(cc.Node.EventType.MOUSE_LEAVE, this.onMouseLeave, this);
-        this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        // this.node.on(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
+        // this.node.on(cc.Node.EventType.MOUSE_LEAVE, this.onMouseLeave, this);
+        // this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
     },
 
     start1() {
     },
 
-    onMouseEnter(event) {
-        // Handle hover enter event
+    onMouseMove() {
         this.node.opacity = 255;
         GlobalVariables.currentBetId = this.betId;
         GlobalVariables.currentBetContract = this.contract;
     },
 
-    onMouseLeave(event) {
+    onMouseLeave() {
         // Handle hover leave event
         this.node.opacity = 0;
     },
 
-    onTouchStart(event) {
+    onTouchStart() {
         if (GlobalVariables.chip !== -1) {
             console.log(GlobalVariables.chip);
         } else {
