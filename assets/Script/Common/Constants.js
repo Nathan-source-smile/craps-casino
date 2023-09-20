@@ -59,6 +59,7 @@ export const BET_LIST = [
         pay_rate: [2.2, 2.5, 3],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: "2:1 on 4/10. 3:2 on 5:9. 6:5 on 6/8."
     },
     {
         id: 5,
@@ -66,6 +67,7 @@ export const BET_LIST = [
         pay_rate: [2.7, 2.4, 2.8],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: ["9:6 on making point", "7:5 on making point", "7:6 on making point", "7:6 on making point", "7:5 on making point", "9:6 on making point"]
     },
     {
         id: 6,
@@ -73,6 +75,7 @@ export const BET_LIST = [
         pay_rate: [2.14, 2.425, 2.9],
         commission: 0.05,
         type: BET_TYPES.MULTI_ROLL,
+        rule: ["2:1 on making point. Vig. 5% of bet.", "3:2 on making point. Vig. 5% of bet.", "6:5 on making point. Vig. 5% of bet.", "6:5 on making point. Vig. 5% of bet.", "3:2 on making point. Vig. 5% of bet.", "2:1 on making point. Vig. 5% of bet.",]
     },
     {
         id: 7,
@@ -136,6 +139,7 @@ export const BET_LIST = [
         pay_rate: [2.2, 2.5, 3],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: ["2:1 on marking point", "3:2 on marking point", "6:5 on marking point", "6:5 on marking point", "3:2 on marking point", "2:1 on marking point"]
     },
     {
         id: 15,
@@ -143,6 +147,7 @@ export const BET_LIST = [
         pay_rate: [1.83, 1.67, 1.5],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: ["1:2 on 7 before don't come point", "2:3 on 7 before don't come point", "5:6 on 7 before don't come point", "5:6 on 7 before don't come point", "2:3 on 7 before don't come point", "1:2 on 7 before don't come point",]
     },
     {
         id: 16,
@@ -150,6 +155,7 @@ export const BET_LIST = [
         pay_rate: [1.8, 1.625, 1.45],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: ["5:11 on 7 before point.", "5:8 on 7 before point.", "4:5 on 7 before point.", "4:5 on 7 before point.", "5:8 on 7 before point.", "5:11 on 7 before point."]
     },
     {
         id: 17,
@@ -157,6 +163,7 @@ export const BET_LIST = [
         pay_rate: [1.79, 1.63, 1.475],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
+        rule: ["1:2 on 7 before point. Vig. 5% of win.", "2:3 on 7 before point. Vig. 5% of win.", "5:6 on 7 before point. Vig. 5% of win.", "5:6 on 7 before point. Vig. 5% of win.", "2:3 on 7 before point. Vig. 5% of win.", "1:2 on 7 before point. Vig. 5% of win.",]
     },
     {
         id: 18,
