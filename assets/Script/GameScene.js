@@ -5,6 +5,7 @@ import { loadImgAtlas } from "./AssetLoader";
 import TopBar from "./TopBar";
 import { POINTS } from "./Common/Constants";
 import { ClientCommService } from "./ClientCommService";
+import Dice from './Dice';
 import GlobalVariables from "./GlobalVariables";
 
 
@@ -53,8 +54,8 @@ cc.Class({
             default: null,
             type : cc.Prefab,
         },
-        dice1: cc.Label,
-        dice2: cc.Label,
+        dice1: Dice,
+        dice2: Dice,
         roll: cc.Button,
 
         _gameState: -1,
@@ -120,14 +121,15 @@ cc.Class({
 
     // set result of roll
     setRollResult(dice1, dice2, player, gameState, availableBets, availableComes, availableDComes) {
-        this.dice1.string = dice1;
-        this.dice2.string = dice2;
+        // console.log(dice1);
+        this.dice1.setNo(dice1);
+        this.dice2.setNo(dice2);
         this._availableBets = availableBets;
         this._availableComes = availableComes;
         this._availableDComes = availableDComes;
     },
 
-    onChipClick (  ) {
+    onChipClick () {
 
     },
 

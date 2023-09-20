@@ -13,6 +13,7 @@ cc.Class({
     },
 
     onLoad() {
+        this.node.opacity = 0;
         // Enable mouse input events
         this.node.on(cc.Node.EventType.MOUSE_ENTER, this.onMouseEnter, this);
         this.node.on(cc.Node.EventType.MOUSE_LEAVE, this.onMouseLeave, this);
@@ -24,12 +25,12 @@ cc.Class({
 
     onMouseEnter(event) {
         // Handle hover enter event
-        console.log("Mouse entered!");
+        this.node.opacity = 255;
     },
 
     onMouseLeave(event) {
         // Handle hover leave event
-        console.log("Mouse left!");
+        this.node.opacity = 0;
     },
 
     onTouchStart(event) {
