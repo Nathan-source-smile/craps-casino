@@ -84,13 +84,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 510
-      },
-      {
         "__id__": 511
       },
       {
         "__id__": 512
+      },
+      {
+        "__id__": 513
       }
     ],
     "_prefab": null,
@@ -23318,6 +23318,9 @@
     "_components": [
       {
         "__id__": 509
+      },
+      {
+        "__id__": 510
       }
     ],
     "_prefab": null,
@@ -23402,6 +23405,19 @@
     "_N$overflow": 0,
     "_N$cacheMode": 0,
     "_id": "73xeOExL9KlZDzxN3cGMKz"
+  },
+  {
+    "__type__": "fdbe96XdPpGzaFG5tqs9hlK",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 508
+    },
+    "_enabled": true,
+    "explabel": {
+      "__id__": 509
+    },
+    "_id": "9eF0huMidBjL9YRsJBD4Nm"
   },
   {
     "__type__": "cc.Canvas",

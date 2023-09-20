@@ -33,8 +33,6 @@ cc.Class({
         console.log(GlobalVariables.chip);
         const pos = this.getPosition();
         this.moveToPos(0.1, 20, pos.y);
-        let pos1 = this.getPosition();
-        console.log(pos1.x, pos1.y);
     },
 
     moveToPos(d, x, y) {
@@ -53,8 +51,6 @@ cc.Class({
     update: function (dt) {
         if (GlobalVariables.chip !== this.coin) {
             let pos1 = this.getPosition();
-            console.log("sss", this.coin, pos1.x, pos1.y);
-            // this.moveToPos(0.1, 0, pos1.y);
             this.node.position = cc.v2(0, pos1.y);
         }
     },

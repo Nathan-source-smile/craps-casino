@@ -26,6 +26,8 @@ cc.Class({
     onMouseEnter(event) {
         // Handle hover enter event
         this.node.opacity = 255;
+        GlobalVariables.currentBetId = this.betId;
+        GlobalVariables.currentBetContract = this.contract;
     },
 
     onMouseLeave(event) {
