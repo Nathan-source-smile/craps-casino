@@ -23,7 +23,7 @@ export const POINTS = [4, 5, 6, 8, 9, 10];
 export const BET_LIST = [
     {
         id: 0,
-        name: "PASS_LINE",
+        name: "PASS LINE",
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -31,11 +31,11 @@ export const BET_LIST = [
     },
     {
         id: 1,
-        name: "D_PASS_LINE",
+        name: "DON'T PASS BAR",
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
-        rule: "1 rolled bet. 30:1.",
+        rule: "1:1 on come out 2/3 or non come out 7.",    
     },
     {
         id: 2,
@@ -47,7 +47,7 @@ export const BET_LIST = [
     },
     {
         id: 3,
-        name: "D_COME",
+        name: "DON'T COME",
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -55,7 +55,7 @@ export const BET_LIST = [
     },
     {
         id: 4,
-        name: "PASS_LINE_ODDS",
+        name: "PASS ODDS",
         pay_rate: [2.2, 2.5, 3],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -63,7 +63,7 @@ export const BET_LIST = [
     },
     {
         id: 5,
-        name: "PLACE",
+        name: "PLACE WIN",
         pay_rate: [2.7, 2.4, 2.8],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -79,7 +79,7 @@ export const BET_LIST = [
     },
     {
         id: 7,
-        name: "BIG_6",
+        name: "BIG SIX",
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -87,7 +87,7 @@ export const BET_LIST = [
     },
     {
         id: 8,
-        name: "BIG_8",
+        name: "BIG EIGHT",
         pay_rate: 2,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -95,7 +95,7 @@ export const BET_LIST = [
     },
     {
         id: 9,
-        name: "HARD_6",
+        name: "HARDWAY SIX",
         pay_rate: 10,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -103,7 +103,7 @@ export const BET_LIST = [
     },
     {
         id: 10,
-        name: "HARD_8",
+        name: "HARDWAY EIGHT",
         pay_rate: 10,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -111,7 +111,7 @@ export const BET_LIST = [
     },
     {
         id: 11,
-        name: "HARD_4",
+        name: "HARDWAY FOUR",
         pay_rate: 8,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -119,7 +119,7 @@ export const BET_LIST = [
     },
     {
         id: 12,
-        name: "HARD_10",
+        name: "HARDWAY TEN",
         pay_rate: 8,
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -127,7 +127,7 @@ export const BET_LIST = [
     },
     {
         id: 13,
-        name: "D_PASS_ODDS",
+        name: "DON'T PASS ODDS",
         pay_rate: [1.83, 1.67, 1.5],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -135,7 +135,7 @@ export const BET_LIST = [
     },
     {
         id: 14,
-        name: "COME_ODDS",
+        name: "ODDS ON COME",
         pay_rate: [2.2, 2.5, 3],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -143,7 +143,7 @@ export const BET_LIST = [
     },
     {
         id: 15,
-        name: "D_COME_ODDS",
+        name: "ODDS ON DON'T COME",
         pay_rate: [1.83, 1.67, 1.5],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -151,7 +151,7 @@ export const BET_LIST = [
     },
     {
         id: 16,
-        name: "PLACE_LOSE",
+        name: "PLACE LOSE",
         pay_rate: [1.8, 1.625, 1.45],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -159,7 +159,7 @@ export const BET_LIST = [
     },
     {
         id: 17,
-        name: "LAY_BET",
+        name: "LAY",
         pay_rate: [1.79, 1.63, 1.475],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
@@ -175,7 +175,7 @@ export const BET_LIST = [
     },
     {
         id: 19,
-        name: "ACES",
+        name: "CRAPS TWO",
         pay_rate: 31,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
@@ -183,7 +183,7 @@ export const BET_LIST = [
     },
     {
         id: 20,
-        name: "TWELVE",
+        name: "CRAPS TWELVE",
         pay_rate: 31,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
@@ -191,7 +191,7 @@ export const BET_LIST = [
     },
     {
         id: 21,
-        name: "ACE_DEUCE",
+        name: "CRAPS THREE",
         pay_rate: 16,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
@@ -199,7 +199,7 @@ export const BET_LIST = [
     },
     {
         id: 22,
-        name: "YO",
+        name: "CRAPS ELEVEN",
         pay_rate: 16,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
@@ -207,7 +207,7 @@ export const BET_LIST = [
     },
     {
         id: 23,
-        name: "ANY_7",
+        name: "ANY SEVEN",
         pay_rate: 5,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
@@ -215,7 +215,7 @@ export const BET_LIST = [
     },
     {
         id: 24,
-        name: "ANY_CRAPS",
+        name: "ANY CRAPS",
         pay_rate: 8,
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
