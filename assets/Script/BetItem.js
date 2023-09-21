@@ -27,6 +27,7 @@ export default cc.Class({
         this.node.opacity = 255;
         GlobalVariables.currentBetId = this.betId;
         GlobalVariables.currentBetContract = this.contract;
+        GlobalVariables.currentBetMax = 200;
     },
 
     onMouseLeave() {
