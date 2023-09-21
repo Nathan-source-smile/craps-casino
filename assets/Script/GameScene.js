@@ -7,6 +7,7 @@ import { POINTS } from "./Common/Constants";
 import { ClientCommService } from "./ClientCommService";
 import Dice from './Dice';
 import GlobalVariables from "./GlobalVariables";
+import Puck from "./Puck";
 
 
 export let GameScene;
@@ -52,7 +53,7 @@ cc.Class({
         },
         puck : {
             default: null,
-            type : cc.Prefab,
+            type : Puck,
         },
         dice1: Dice,
         dice2: Dice,
@@ -124,6 +125,7 @@ cc.Class({
         // console.log(dice1);
         this.dice1.setNo(dice1);
         this.dice2.setNo(dice2);
+        this.puck.setPuck(gameState);
         this._availableBets = availableBets;
         this._availableComes = availableComes;
         this._availableDComes = availableDComes;

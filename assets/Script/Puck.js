@@ -1,100 +1,94 @@
-const DOUBLE_TOUCH_INTERVAL = 0.3; // Time in seconds between two consecutive touches
 import GlobalVariables from "./GlobalVariables";
 
 
-cc.Class({
+export default cc.Class({
     extends: cc.Component,
 
     properties: {
-        mainButton: cc.Button,
-        offSprite: cc.Sprite,
-        onSprite: cc.Sprite,
-        flag : false,
+        offSprite: cc.Node,
+        onSprite: cc.Node,
 
         _gameState: -1,
+        _originPos: null,
     },
 
     onLoad() {
+        this._gameState = -1;
+        this.offSprite.active = true;
+        this.onSprite.active = false;
+        this._originPos = this.getPosition();
     },
 
     start1() {
     },
 
-    // calcDistance(curState, nextState){
-    //     if()
-    // },
-
-    // animationButton () {
-    //     if(getPosition() > 0){
-    //         mainButton.
-    //     }
-    // },
+    setFace(on) {
+        if (on) {
+            this.offSprite.active = false;
+            this.onSprite.active = true;
+        } else {
+            this.offSprite.active = true;
+            this.onSprite.active = false;
+        }
+    },
 
     getPosition() {
         return this.node.position;
     },
 
-    setPuck ( _gameState){
-        let curPosition;
-        var movieUnit = 73;
+    moveToPos(d, x, y) {
+        console.log(this.node);
+        this.node.stopAllActions();
+        cc.tween(this.node)
+            .to(d, { x: x, y: y })
+            .start();
+    },
+
+    setPuck(_gameState) {
+        let curPosition = this.getPosition();
+        console.log(_gameState, curPosition.x);
+        var movieUnit = 70;
         var movePos = 0;
-        if(_gameState === -1) {
-            flag = false;
-        } else {
-            switch (_gameState) {
-                case 4:
-                    flag = true;
-                    curPosition = this.getPosition();
-                    movePos = movieUnit - curPosition.x;
-                    onSprite.moveToPos(abs(movePos/movieUnit)*300, movePos, 0);
-                    break;
-                case 5:
-                    flag = true;
-                    curPosition = this.getPosition();
-                    movePos = 2*movieUnit - curPosition;
-                    onSprite.moveToPos(abs(movePos/movieUnit)*300, movePos, 0);
-                    break;
-                case 6:
-                    flag = true;
-                    curPosition = this.getPosition();
-                    movePos = 3*movieUnit - curPosition;
-                    onSprite.moveToPos(abs(movePos/movieUnit)*300, movePos, 0);
-                    break;
-                case 8: 
-                    flag = true;
-                    curPosition = this.getPosition();
-                    movePos = 4*movieUnit - curPosition;
-                    onSprite.moveToPos(abs(movePos/movieUnit)*300, movePos, 0);
-                    break;
-                case 9:
-                    flag = true;
-                    curPosition = this.getPosition();
-                    movePos = 5*movieUnit - curPosition;
-                    onSprite.moveToPos(abs(movePos/movieUnit)*300, movePos, 0);
-                    break;
-                case 10:
-                    flag = true;
-                    curPosition = this.getPosition();
-                    movePos = 6*movieUnit - curPosition;
-                    onSprite.moveToPos(abs(movePos/movieUnit)*300, movePos, 0);
-                    break;
-                default:
-                    flag = false;
-                    onSprite.moveToPos(500, 0, 0);
-            }
+        switch (_gameState) {
+            case 4:
+                this.setFace(true);
+                movePos = movieUnit + this._originPos.x;
+                this.moveToPos(0.2, movePos, this._originPos.y);
+                break;
+            case 5:
+                this.setFace(true);
+                movePos = 2 * movieUnit + this._originPos.x;
+                this.moveToPos(0.2, movePos, this._originPos.y);
+                break;
+            case 6:
+                this.setFace(true);
+                movePos = 3 * movieUnit + this._originPos.x;
+                this.moveToPos(0.2, movePos, this._originPos.y);
+                break;
+            case 8:
+                this.setFace(true);
+                movePos = 4 * movieUnit + this._originPos.x;
+                this.moveToPos(0.2, movePos, this._originPos.y);
+                break;
+            case 9:
+                this.setFace(true);
+                movePos = 5 * movieUnit + this._originPos.x;
+                this.moveToPos(0.2, movePos, this._originPos.y);
+                break;
+            case 10:
+                this.setFace(true);
+                movePos = 6 * movieUnit + this._originPos.x;
+                this.moveToPos(0.2, movePos, this._originPos.y);
+                break;
+            default:
+                this.setFace(false);
+                this.moveToPos(0.2, this._originPos.x, this._originPos.y);
         }
 
     },
 
-
-    
-
     // called every frame
     update: function (dt) {
-        if (GlobalVariables.chip !== this.coin) {
-            let pos1 = this.getPosition();
-            this.node.position = cc.v2(0, pos1.y);
-        }
     },
 
 });
