@@ -5,7 +5,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        betLabel: cc.Label,
     },
 
     onLoad() {
@@ -16,6 +15,7 @@ cc.Class({
 
     // called every frame
     update: function (dt) {
-
+        const label = this.node.getComponent(cc.Label);
+        label.string = "Max. bet: " + GlobalVariables.currentBetMax;
     }
 })
