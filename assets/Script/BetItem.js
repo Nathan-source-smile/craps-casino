@@ -26,6 +26,7 @@ export default cc.Class({
         GlobalVariables.currentBetId = this.betId;
         GlobalVariables.currentBetContract = this.contract;
         GlobalVariables.currentBetMax = 200;
+        GlobalVariables.message = "ergjgvweopgj we wfjwefj krgregjpo";
     },
 
     onMouseLeave() {
