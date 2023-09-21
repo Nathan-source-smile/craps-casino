@@ -31,7 +31,6 @@ export default cc.Class({
     },
 
     setNo(no) {
-        console.log(no);
         for (let i = 0; i < 6; i++) {
             this._nolist[i].active = false;
             if ((i + 1) === no) {

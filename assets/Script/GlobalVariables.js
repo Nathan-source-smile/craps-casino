@@ -4,6 +4,12 @@ const GlobalVariables = {
     currentBetContract: -1,
     message: "",
     currentBetMax: 200,
+    betList: [],
+    new_betList: [],
+    gameState: -1,
+    availableBets: [],
+    availableComes: [],
+    availableDComes: [],
 };
 
 export default GlobalVariables;

@@ -10,6 +10,14 @@ import GlobalVariables from "./GlobalVariables";
 import Puck from "./Puck";
 
 
+function copyObject(object) {
+    if (!object) {
+        console.log("undefined object in copyObject:", object);
+        return object;
+    }
+    return JSON.parse(JSON.stringify(object));
+}
+
 export let GameScene;
 cc.Class({
     extends: cc.Component,
@@ -47,13 +55,13 @@ cc.Class({
             default: null,
             type: cc.Prefab,
         },
-        betDom : {
+        betDom: {
             default: null,
-            type : Doms,
+            type: Doms,
         },
-        puck : {
+        puck: {
             default: null,
-            type : Puck,
+            type: Puck,
         },
         dice1: Dice,
         dice2: Dice,
@@ -78,46 +86,52 @@ cc.Class({
         this._availableBets = availableBets;
         this._betList = [];
     },
-    
+
     onRollClick() {
-        this._betList = [];
-        let betIds = getRandomItems(this._availableBets, 3);
-        betIds.forEach((id) => {
-            if ([5, 6, 16, 17].includes(id)) {
-                this._betList.push({
-                    betId: id,
-                    betAmount: 10,
-                    betSuccess: 0,
-                    contract: getRandomItems(POINTS, 1)[0],
-                    limit: 100,
-                });
-            } else if (14 === id) {
-                this._betList.push({
-                    betId: id,
-                    betAmount: 10,
-                    betSuccess: 0,
-                    contract: getRandomItems(this._availableComes, 1)[0],
-                    limit: 100,
-                });
-            } else if (15 === id) {
-                this._betList.push({
-                    betId: id,
-                    betAmount: 10,
-                    betSuccess: 0,
-                    contract: getRandomItems(this._availableDComes, 1)[0],
-                    limit: 100,
-                });
-            } else {
-                this._betList.push({
-                    betId: id,
-                    betAmount: 10,
-                    betSuccess: 0,
-                    contract: 0,
-                    limit: 100,
-                });
-            }
-        });
-        ClientCommService.sendClaimRoll(0, this._betList);
+        // this._betList = [];
+        // let betIds = getRandomItems(this._availableBets, 3);
+        // betIds.forEach((id) => {
+        //     if ([5, 6, 16, 17].includes(id)) {
+        //         this._betList.push({
+        //             betId: id,
+        //             betAmount: 10,
+        //             betSuccess: 0,
+        //             contract: getRandomItems(POINTS, 1)[0],
+        //             limit: 100,
+        //         });
+        //     } else if (14 === id) {
+        //         this._betList.push({
+        //             betId: id,
+        //             betAmount: 10,
+        //             betSuccess: 0,
+        //             contract: getRandomItems(this._availableComes, 1)[0],
+        //             limit: 100,
+        //         });
+        //     } else if (15 === id) {
+        //         this._betList.push({
+        //             betId: id,
+        //             betAmount: 10,
+        //             betSuccess: 0,
+        //             contract: getRandomItems(this._availableDComes, 1)[0],
+        //             limit: 100,
+        //         });
+        //     } else {
+        //         this._betList.push({
+        //             betId: id,
+        //             betAmount: 10,
+        //             betSuccess: 0,
+        //             contract: 0,
+        //             limit: 100,
+        //         });
+        //     }
+        // });
+        // GlobalVariables.betList = copyObject(this._betList);
+        if (GlobalVariables.betList.length === 0) {
+            GlobalVariables.message = "Place your bet"
+        } else {
+            ClientCommService.sendClaimRoll(0, GlobalVariables.new_betList);
+            GlobalVariables.new_betList = [];
+        }
     },
 
     // set result of roll
@@ -129,9 +143,22 @@ cc.Class({
         this._availableBets = availableBets;
         this._availableComes = availableComes;
         this._availableDComes = availableDComes;
+        GlobalVariables.availableBets = availableBets;
+        GlobalVariables.availableComes = availableComes;
+        GlobalVariables.availableDComes = availableDComes;
+        GlobalVariables.betList = [];
+        for (let i = 0; i < player.betList.length; i++) {
+            if (player.betList[i].betSuccess === 0) {
+                GlobalVariables.betList.push(copyObject(player.betList[i]));
+            } else if (player.betList[i].betSuccess === 1){
+                console.log("s:", player.betList[i]);
+            } else if (player.betList[i].betSuccess === -1){
+                console.log("f:", player.betList[i]);
+            }
+        }
     },
 
-    onChipClick () {
+    onChipClick() {
 
     },
 

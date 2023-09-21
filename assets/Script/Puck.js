@@ -37,7 +37,6 @@ export default cc.Class({
     },
 
     moveToPos(d, x, y) {
-        console.log(this.node);
         this.node.stopAllActions();
         cc.tween(this.node)
             .to(d, { x: x, y: y })
@@ -45,8 +44,6 @@ export default cc.Class({
     },
 
     setPuck(_gameState) {
-        let curPosition = this.getPosition();
-        console.log(_gameState, curPosition.x);
         var movieUnit = 70;
         var movePos = 0;
         switch (_gameState) {

@@ -131,25 +131,27 @@ function rollDices(data, room) {
     for (var j = 0; j < playerList[0].betList.length; j++) {
         if (playerList[0].betList[j].betSuccess === 0) {
             temp_betList.push(copyObject(playerList[0].betList[j]));
-        } else if (playerList[0].betList[j].betSuccess === 1){
-            console.log("success:", playerList[0].betList[j]);
-        } else if (playerList[0].betList[j].betSuccess === -1){
-            console.log("failed:", playerList[0].betList[j]);
         }
+        // } else if (playerList[0].betList[j].betSuccess === 1){
+        //     console.log("success:", playerList[0].betList[j]);
+        // } else if (playerList[0].betList[j].betSuccess === -1){
+        //     console.log("failed:", playerList[0].betList[j]);
+        // }
     }
     for (var i = 0; i < data.betList.length; i++) {
         var flag = false;
-        for (var j = 0; j < playerList[0].betList.length; j++) {
-            if (playerList[0].betList[j].betSuccess === 0) {
-                if (playerList[0].betList[j].betId === data.betList[i].betId) {
-                    var tbetItem = {
-                        betId: data.betList[i].betId,
-                        betAmount: playerList[0].betList[j].betAmount + data.betList[i].betAmount,
-                        betSuccess: playerList[0].betList[j].betSuccess,
-                        contract: playerList[0].betList[j].contract,
-                        limit: playerList[0].betList[j].limit,
-                    }
-                    temp_betList.push(copyObject(tbetItem));
+        for (var j = 0; j < temp_betList.length; j++) {
+            if (temp_betList[j].betSuccess === 0) {
+                if (temp_betList[j].betId === data.betList[i].betId) {
+                    // var tbetItem = {
+                    //     betId: data.betList[i].betId,
+                    //     betAmount: temp_betList[j].betAmount + data.betList[i].betAmount,
+                    //     betSuccess: temp_betList[j].betSuccess,
+                    //     contract: temp_betList[j].contract,
+                    //     limit: temp_betList[j].limit,
+                    // }
+                    // temp_betList.push(copyObject(tbetItem));
+                    temp_betList[j].betAmount += data.betList[i].betAmount,
                     flag = true;
                 }
             }

@@ -4,7 +4,7 @@ import GlobalVariables from "./GlobalVariables";
 let touchCount = 0;
 let lastTouchTime = 0;
 
-cc.Class({
+export default cc.Class({
     extends: cc.Component,
 
     properties: {
