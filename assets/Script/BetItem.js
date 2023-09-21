@@ -5,6 +5,8 @@ export default cc.Class({
     extends: cc.Component,
 
     properties: {
+        hover: cc.Node,
+
         betId: -1,
         _betAmount: 0,
         _betSuccess: 0,
@@ -13,25 +15,20 @@ export default cc.Class({
     },
 
     onLoad() {
-        this.node.opacity = 0;
-        // Enable mouse input events
-        // this.node.on(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
-        // this.node.on(cc.Node.EventType.MOUSE_LEAVE, this.onMouseLeave, this);
-        // this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
     },
 
     start1() {
     },
 
     onMouseMove() {
-        this.node.opacity = 255;
+        this.hover.active = true;
         GlobalVariables.currentBetId = this.betId;
         GlobalVariables.currentBetContract = this.contract;
     },
 
     onMouseLeave() {
         // Handle hover leave event
-        this.node.opacity = 0;
+        this.hover.active = false;
     },
 
     onTouchStart() {
