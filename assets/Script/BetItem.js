@@ -24,6 +24,7 @@ export default cc.Class({
         this.hover.active = true;
         GlobalVariables.currentBetId = this.betId;
         GlobalVariables.currentBetContract = this.contract;
+        GlobalVariables.currentBetMax = 200;
     },
 
     onMouseLeave() {

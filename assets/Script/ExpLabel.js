@@ -101,89 +101,89 @@ cc.Class({
                 break;
             case 14:
                 switch(GlobalVariables.currentBetContract){
-                    case 3:
+                    case 4:
                         this.explabel.string = BET_LIST[14].name + " FOUR" + " - " + BET_LIST[14].rule[0];
                         break;
-                    case 4:
+                    case 5:
                         this.explabel.string = BET_LIST[14].name + " FIVE" + " - " + BET_LIST[14].rule[1];
                         break;
-                    case 5:
+                    case 6:
                         this.explabel.string = BET_LIST[14].name + " SIX" + " - " + BET_LIST[14].rule[2];
                         break;
-                    case 7:
+                    case 8:
                         this.explabel.string = BET_LIST[14].name + " EIGHT" + " - " + BET_LIST[14].rule[3];
                         break;
-                    case 8:
+                    case 9:
                         this.explabel.string = BET_LIST[14].name + " NINE" + " - " + BET_LIST[14].rule[4];
                         break;
-                    case 9:
+                    case 10:
                         this.explabel.string = BET_LIST[14].name + " TEN" + " - " + BET_LIST[14].rule[5];
                         break;       
                 }
                 break;
             case 15:
                 switch(GlobalVariables.currentBetContract){
-                    case 3:
+                    case 4:
                         this.explabel.string = BET_LIST[15].name + " FOUR" + " - " + BET_LIST[15].rule[0];
                         break;
-                    case 4:
+                    case 5:
                         this.explabel.string = BET_LIST[15].name + " FIVE" + " - " + BET_LIST[15].rule[1];
                         break;
-                    case 5:
+                    case 6:
                         this.explabel.string = BET_LIST[15].name + " SIX" + " - " + BET_LIST[15].rule[2];
                         break;
-                    case 7:
+                    case 8:
                         this.explabel.string = BET_LIST[15].name + " EIGHT" + " - " + BET_LIST[15].rule[3];
                         break;
-                    case 8:
+                    case 9:
                         this.explabel.string = BET_LIST[15].name + " NINE" + " - " + BET_LIST[15].rule[4];
                         break;
-                    case 9:
+                    case 10:
                         this.explabel.string = BET_LIST[15].name + " TEN" + " - " + BET_LIST[15].rule[5];
                         break;       
                 }
                 break;
             case 16:
                 switch(GlobalVariables.currentBetContract){
-                    case 3:
+                    case 4:
                         this.explabel.string = BET_LIST[16].name + " FOUR" + " - " + BET_LIST[16].rule[0];
                         break;
-                    case 4:
+                    case 5:
                         this.explabel.string = BET_LIST[16].name + " FIVE" + " - " + BET_LIST[16].rule[1];
                         break;
-                    case 5:
+                    case 6:
                         this.explabel.string = BET_LIST[16].name + " SIX" + " - " + BET_LIST[16].rule[2];
                         break;
-                    case 7:
+                    case 8:
                         this.explabel.string = BET_LIST[16].name + " EIGHT" + " - " + BET_LIST[16].rule[3];
                         break;
-                    case 8:
+                    case 9:
                         this.explabel.string = BET_LIST[16].name + " NINE" + " - " + BET_LIST[16].rule[4];
                         break;
-                    case 9:
+                    case 10:
                         this.explabel.string = BET_LIST[16].name + " TEN" + " - " + BET_LIST[16].rule[5];
                         break;       
                 }
                 break;
             case 17:
                 switch(GlobalVariables.currentBetContract){
-                    case 3:
-                        this.explabel.string = BET_LIST[6].name + " FOUR" + " - " + BET_LIST[6].rule[0];
-                        break;
                     case 4:
-                        this.explabel.string = BET_LIST[6].name + " FIVE" + " - " + BET_LIST[6].rule[1];
+                        this.explabel.string = BET_LIST[17].name + " FOUR" + " - " + BET_LIST[17].rule[0];
                         break;
                     case 5:
-                        this.explabel.string = BET_LIST[6].name + " SIX" + " - " + BET_LIST[6].rule[2];
+                        this.explabel.string = BET_LIST[17].name + " FIVE" + " - " + BET_LIST[17].rule[1];
                         break;
-                    case 7:
-                        this.explabel.string = BET_LIST[6].name + " EIGHT" + " - " + BET_LIST[6].rule[3];
+                    case 6:
+                        this.explabel.string = BET_LIST[17].name + " SIX" + " - " + BET_LIST[17].rule[2];
                         break;
                     case 8:
-                        this.explabel.string = BET_LIST[6].name + " NINE" + " - " + BET_LIST[6].rule[4];
+                        this.explabel.string = BET_LIST[17].name + " EIGHT" + " - " + BET_LIST[17].rule[3];
                         break;
                     case 9:
-                        this.explabel.string = BET_LIST[6].name + " TEN" + " - " + BET_LIST[6].rule[5];
+                        this.explabel.string = BET_LIST[17].name + " NINE" + " - " + BET_LIST[17].rule[4];
+                        break;
+                    case 10:
+                        this.explabel.string = BET_LIST[17].name + " TEN" + " - " + BET_LIST[17].rule[5];
                         break;       
                 }
                 break;

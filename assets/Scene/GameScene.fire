@@ -5609,6 +5609,116 @@
     "_id": "4fB42PERJBkYu0+LhfuTP6"
   },
   {
+<<<<<<< HEAD
+=======
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 113
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "c723b185-ecfb-440a-b12f-d64448999547"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": {
+      "__uuid__": "282f7d7b-255c-45dd-8cc6-a25b0ce8a50a"
+    },
+    "_id": "15MJL2qA9JQ4CDxiFn+cD9"
+  },
+  {
+    "__type__": "dc03erNKbBNL7PH1CXIoCvV",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 113
+    },
+    "_enabled": true,
+    "betId": 7,
+    "_betAmount": 0,
+    "_betSuccess": 0,
+    "contract": 0,
+    "_limit": 100,
+    "_id": "5522NBvL1Jb5FE9bo0x9yh"
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 113
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": -5.9,
+      "y": -0.4
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -29.1,
+        "y": 47.3
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -29.4,
+        "y": -31.3
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -28,
+        "y": -36.9
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -25.1,
+        "y": -41.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -21.6,
+        "y": -45
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 39,
+        "y": 14.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 39,
+        "y": 16.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 6.7,
+        "y": 47.7
+      }
+    ],
+    "_id": "37pbZJvIZBWZMv7XOw136I"
+  },
+  {
+>>>>>>> 178708a3b54b5284af45fd6e95434f94a5fc3837
     "__type__": "cc.Node",
     "_name": "Big6 Hover",
     "_objFlags": 0,
@@ -5949,6 +6059,116 @@
     "_id": "512HJnNFJMibt0s/y4C1uO"
   },
   {
+<<<<<<< HEAD
+=======
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 120
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "09180c08-8f1d-4b05-bd21-8db3f5f01148"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": {
+      "__uuid__": "282f7d7b-255c-45dd-8cc6-a25b0ce8a50a"
+    },
+    "_id": "45+L/v+tREppRWChoCpc/I"
+  },
+  {
+    "__type__": "dc03erNKbBNL7PH1CXIoCvV",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 120
+    },
+    "_enabled": true,
+    "betId": 8,
+    "_betAmount": 0,
+    "_betSuccess": 0,
+    "contract": 0,
+    "_limit": 100,
+    "_id": "48sB26RQVGlJh8DjAOMKNF"
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 120
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 3.13,
+      "y": -1.15
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": 45.8,
+        "y": -33.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 45.84,
+        "y": 3.01
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 14.06,
+        "y": 34.45
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 12.1,
+        "y": 36.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -50.619,
+        "y": -25.558
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -47.6,
+        "y": -27.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -43.2,
+        "y": -30.3
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -33,
+        "y": -34.1
+      }
+    ],
+    "_id": "820Hn69thOobFzXN8g8iTM"
+  },
+  {
+>>>>>>> 178708a3b54b5284af45fd6e95434f94a5fc3837
     "__type__": "cc.Node",
     "_name": "Big8 Hover",
     "_objFlags": 0,
