@@ -132,11 +132,6 @@ function rollDices(data, room) {
         if (playerList[0].betList[j].betSuccess === 0) {
             temp_betList.push(copyObject(playerList[0].betList[j]));
         }
-        // } else if (playerList[0].betList[j].betSuccess === 1){
-        //     console.log("success:", playerList[0].betList[j]);
-        // } else if (playerList[0].betList[j].betSuccess === -1){
-        //     console.log("failed:", playerList[0].betList[j]);
-        // }
     }
     for (var i = 0; i < data.betList.length; i++) {
         var flag = false;
