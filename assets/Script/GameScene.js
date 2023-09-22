@@ -132,6 +132,7 @@ cc.Class({
     onClearClick() {
         GlobalVariables.message = "";
         let temp_betList = [];
+        GlobalVariables.history = [];
         GlobalVariables.betList.forEach((betItem) => {
             if (betItem.betId === 2 && betItem.contract !== 0) {
                 temp_betList.push(betItem);
