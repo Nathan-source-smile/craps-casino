@@ -8,6 +8,7 @@ import { ClientCommService } from "./ClientCommService";
 import Dice from './Dice';
 import GlobalVariables from "./GlobalVariables";
 import Puck from "./Puck";
+import { FakeServer } from "./Common/CommServices";
 
 
 function copyObject(object) {
@@ -140,6 +141,8 @@ cc.Class({
         this.dice1.setNo(dice1);
         this.dice2.setNo(dice2);
         this.puck.setPuck(gameState);
+
+        GlobalVariables.totalCoin =  FakeServer.playerList[0].coins;
         this._availableBets = availableBets;
         this._availableComes = availableComes;
         this._availableDComes = availableDComes;
