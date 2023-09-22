@@ -31,8 +31,8 @@ cc.Class({
         this.label.horizontalAlign = cc.Label.HorizontalAlign.LEFT;
         this.label.verticalAlign = cc.Label.VerticalAlign.CENTER;
 
-        this.startFlowAnimation();
-        this.labelFlow();
+        // this.startFlowAnimation();
+        // this.labelFlow();
     },
 
     // getPosition() {

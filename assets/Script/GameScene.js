@@ -148,6 +148,12 @@ cc.Class({
         GlobalVariables.availableComes = availableComes;
         GlobalVariables.availableDComes = availableDComes;
         GlobalVariables.betList = [];
+        let delta = GlobalVariables.totalCoin - player.coins;
+        if (delta < 0) {
+            GlobalVariables.message = "the player wins " + delta + " toros";
+        } else if (delta > 0) {
+            GlobalVariables.message = "the casino wins";
+        }
         GlobalVariables.totalCoin = player.coins;
         for (let i = 0; i < player.betList.length; i++) {
             if (player.betList[i].betSuccess === 0) {

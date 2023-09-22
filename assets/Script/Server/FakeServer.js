@@ -525,6 +525,17 @@ function evalCoins() {
                     betItem.betSuccess = -1;
                 }
                 break;
+            case BET_LIST[25].id:
+                if ([2, 12].includes(sum)) {
+                    result += BET_LIST[25].pay_rate[0] * betItem.betAmount;
+                    betItem.betSuccess = 1;
+                } else if ([3, 11].includes(sum)) {
+                    result += BET_LIST[25].pay_rate[1] * betItem.betAmount;
+                    betItem.betSuccess = 1;
+                } else {
+                    betItem.betSuccess = -1;
+                }
+                break;
         }
     });
     playerList[0].coins += result;
@@ -533,7 +544,7 @@ function evalCoins() {
 function getAvailBets() {
     availableComes = [];
     availableDComes = [];
-    availableBets = [18, 19, 20, 21, 22, 23, 24, 5, 6, 16, 17, 9, 10, 11, 12];
+    availableBets = [18, 19, 20, 21, 22, 23, 24, 5, 6, 16, 17, 9, 10, 11, 12, 25];
     if (gameState === -1) {
         availableBets.push(0, 1);
     } else {

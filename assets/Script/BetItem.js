@@ -40,11 +40,23 @@ export default cc.Class({
     onMouseMove() {
         if (this._disable)
             return;
-        console.log("hover");
-        this.hover.active = true;
-        GlobalVariables.currentBetId = this.betId;
-        GlobalVariables.currentBetContract = this.contract;
-        GlobalVariables.currentBetMax = this._limit;
+        if (!GlobalVariables.availableBets.includes(this.betId)) {
+            GlobalVariables.avail = false;
+        } else {
+            GlobalVariables.currentBetId = this.betId;
+            GlobalVariables.currentBetContract = this.contract;
+            GlobalVariables.currentBetMax = this._limit;
+            if (14 === this.betId && !GlobalVariables.availableComes.includes(this.contract)) {
+                GlobalVariables.avail = false;
+                return;
+            }
+            if (15 === this.betId && !GlobalVariables.availableDComes.includes(this.contract)) {
+                GlobalVariables.avail = false;
+                return;
+            }
+            GlobalVariables.avail = true;
+            this.hover.active = true;
+        }
     },
 
     onMouseLeave() {
