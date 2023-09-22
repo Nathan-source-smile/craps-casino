@@ -90,6 +90,11 @@ export default cc.Class({
                     contract: this.contract,
                     limit: this.limit,
                 });
+                const coin100 = cc.instantiate(this.coin100);
+                coin100.scale = cc.v2(0.3, 0.3);
+                this.dom.addChild(coin100);
+                coin100.setPosition(0, 10);
+                this.moveToPos(coin100, 0.2, 0, 0);
                 let flag = true;
                 GlobalVariables.new_betList = GlobalVariables.new_betList.map((el, i) => {
                     if (el.betId === this.betId) {
