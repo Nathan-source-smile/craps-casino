@@ -19,7 +19,7 @@ cc.Class({
     update: function (dt) {
         let totalBet = 0;
 
-        for( i = 0; i < GlobalVariables.betList.length; i++ ){
+        for( let i = 0; i < GlobalVariables.betList.length; i++ ){
             totalBet += GlobalVariables.betList[i].betAmount;
         }
 

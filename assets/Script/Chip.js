@@ -13,15 +13,15 @@ export default cc.Class({
 
     onLoad() {
         this.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            const currentTime = Date.now() / 1000; // Convert milliseconds to seconds
-            if (touchCount === 1 && (currentTime - lastTouchTime) <= DOUBLE_TOUCH_INTERVAL) {
-                // Handle double touch event
-                this.onDoubleTouch(event);
-                touchCount = 0;
-            } else {
-                touchCount = 1;
-                lastTouchTime = currentTime;
-            }
+            // const currentTime = Date.now() / 1000; // Convert milliseconds to seconds
+            // if (touchCount === 1 && (currentTime - lastTouchTime) <= DOUBLE_TOUCH_INTERVAL) {
+            // Handle double touch event
+            this.onDoubleTouch(event);
+            //     touchCount = 0;
+            // } else {
+            //     touchCount = 1;
+            //     lastTouchTime = currentTime;
+            // }
         }, this);
     },
 

@@ -182,6 +182,7 @@ export default cc.Class({
             this.removeCoins();
             this._betAmount = 0;
         }
+        let res;
         if (this.betId === 4) {
             res = this.getbetItem(0, 0);
             if (res) {
@@ -235,31 +236,31 @@ export default cc.Class({
             const coin100 = cc.instantiate(this.coin100);
             coin100.scale = cc.v2(0.3, 0.3);
             this.dom.addChild(coin100);
-            coin100.setPosition(25, 0);
+            coin100.setPosition(5, 0);
         }
         for (let i = 0; i < a50; i++) {
             const coin50 = cc.instantiate(this.coin50);
             coin50.scale = cc.v2(0.3, 0.3);
             this.dom.addChild(coin50);
-            coin50.setPosition(20, 0);
+            coin50.setPosition(4, 0);
         }
         for (let i = 0; i < a25; i++) {
             const coin25 = cc.instantiate(this.coin25);
             coin25.scale = cc.v2(0.3, 0.3);
             this.dom.addChild(coin25);
-            coin25.setPosition(15, 0);
+            coin25.setPosition(3, 0);
         }
         for (let i = 0; i < a10; i++) {
             const coin10 = cc.instantiate(this.coin10);
             coin10.scale = cc.v2(0.3, 0.3);
             this.dom.addChild(coin10);
-            coin10.setPosition(10, 0);
+            coin10.setPosition(2, 0);
         }
         for (let i = 0; i < a5; i++) {
             const coin5 = cc.instantiate(this.coin5);
             coin5.scale = cc.v2(0.3, 0.3);
             this.dom.addChild(coin5);
-            coin5.setPosition(5, 0);
+            coin5.setPosition(1, 0);
         }
         for (let i = 0; i < a1; i++) {
             const coin1 = cc.instantiate(this.coin1);
