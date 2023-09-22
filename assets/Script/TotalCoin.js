@@ -16,6 +16,6 @@ cc.Class({
     // called every frame
     update: function (dt) {
         const tcoin = this.node.getComponent(cc.Label);
-        tcoin.string = GlobalVariables.totalCoin;
+        tcoin.string = GlobalVariables.totalCoin.toFixed(2);
     }
 })

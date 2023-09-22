@@ -22,8 +22,8 @@ export const ClientCommService = {
         ServerCommService.onReceiveMessage(messageType, data, room);
     },
 
-    sendClaimRoll(user, betList) {
-        this.send(MESSAGE_TYPE.CS_CLAIM_ROLL, { user, betList }, 1);
+    sendClaimRoll(user, betList, new_betList) {
+        this.send(MESSAGE_TYPE.CS_CLAIM_ROLL, { user, betList, new_betList }, 1);
     },
 
     sendRestartMission() {
