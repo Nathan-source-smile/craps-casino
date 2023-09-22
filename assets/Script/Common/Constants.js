@@ -224,7 +224,7 @@ export const BET_LIST = [
     {
         id: 25,
         name: "HORN",
-        pay_rate: [16, 31],
+        pay_rate: [7.75, 4],
         commission: 0,
         type: BET_TYPES.ONE_ROLL,
         rule: "1 rolled bet. 15:1 on 3:11. 30:1 on 2/12",

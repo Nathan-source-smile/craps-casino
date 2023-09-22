@@ -1,6 +1,7 @@
 import Chip from "./Chip";
 import { ClientCommService } from "./ClientCommService";
 import Coin from "./Coin";
+import { POINTS } from "./Common/Constants";
 import GlobalVariables from "./GlobalVariables";
 
 export default cc.Class({
@@ -39,11 +40,23 @@ export default cc.Class({
     onMouseMove() {
         if (this._disable)
             return;
-        console.log("hover");
-        this.hover.active = true;
-        GlobalVariables.currentBetId = this.betId;
-        GlobalVariables.currentBetContract = this.contract;
-        GlobalVariables.currentBetMax = this._limit;
+        if (!GlobalVariables.availableBets.includes(this.betId)) {
+            GlobalVariables.avail = false;
+        } else {
+            GlobalVariables.currentBetId = this.betId;
+            GlobalVariables.currentBetContract = this.contract;
+            GlobalVariables.currentBetMax = this._limit;
+            if (14 === this.betId && !GlobalVariables.availableComes.includes(this.contract)) {
+                GlobalVariables.avail = false;
+                return;
+            }
+            if (15 === this.betId && !GlobalVariables.availableDComes.includes(this.contract)) {
+                GlobalVariables.avail = false;
+                return;
+            }
+            GlobalVariables.avail = true;
+            this.hover.active = true;
+        }
     },
 
     onMouseLeave() {
@@ -59,6 +72,14 @@ export default cc.Class({
         if (!GlobalVariables.availableBets.includes(this.betId)) {
             GlobalVariables.message = "Not available bet"
         } else {
+            if (14 === this.betId && !GlobalVariables.availableComes.includes(this.contract)) {
+                GlobalVariables.message = "Not available bet"
+                return;
+            }
+            if (15 === this.betId && !GlobalVariables.availableDComes.includes(this.contract)) {
+                GlobalVariables.message = "Not available bet"
+                return;
+            }
             if (GlobalVariables.chip !== -1) {
                 if ((this._betAmount + GlobalVariables.chip) > this._limit) {
                     GlobalVariables.message = "Overflow the bet amount"
@@ -137,7 +158,7 @@ export default cc.Class({
         let flag = true;
         GlobalVariables.betList.forEach((el) => {
             if (el.betId === this.betId) {
-                if ([2, 3, 5, 6, 16, 17].includes(el.betId)) {
+                if ([2, 3, 5, 6, 14, 15, 16, 17].includes(el.betId)) {
                     if (el.contract === this.contract) {
                         flag = false;
                         this._betAmount = el.betAmount;
@@ -166,6 +187,22 @@ export default cc.Class({
         }
         if (this.betId === 13) {
             res = this.getbetItem(1, 0);
+            if (res) {
+                this._limit = res.betAmount * 3;
+            } else {
+                this._limit = 0;
+            }
+        }
+        if (this.betId === 14 && POINTS.includes(this.contract)) {
+            res = this.getbetItem(2, this.contract);
+            if (res) {
+                this._limit = res.betAmount * 3;
+            } else {
+                this._limit = 0;
+            }
+        }
+        if (this.betId === 15 && POINTS.includes(this.contract)) {
+            res = this.getbetItem(3, this.contract);
             if (res) {
                 this._limit = res.betAmount * 3;
             } else {
