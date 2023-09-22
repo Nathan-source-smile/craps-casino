@@ -10,7 +10,7 @@ const GlobalVariables = {
     availableBets: [],
     availableComes: [],
     availableDComes: [],
-    totalCoin: 1500,
+    totalCoin: 1000,
 };
 
 export default GlobalVariables;

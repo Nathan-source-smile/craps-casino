@@ -8,7 +8,6 @@ import { ClientCommService } from "./ClientCommService";
 import Dice from './Dice';
 import GlobalVariables from "./GlobalVariables";
 import Puck from "./Puck";
-import { FakeServer } from "./Common/CommServices";
 
 
 function copyObject(object) {
@@ -142,7 +141,6 @@ cc.Class({
         this.dice2.setNo(dice2);
         this.puck.setPuck(gameState);
 
-        GlobalVariables.totalCoin =  FakeServer.playerList[0].coins;
         this._availableBets = availableBets;
         this._availableComes = availableComes;
         this._availableDComes = availableDComes;
@@ -150,12 +148,13 @@ cc.Class({
         GlobalVariables.availableComes = availableComes;
         GlobalVariables.availableDComes = availableDComes;
         GlobalVariables.betList = [];
+        GlobalVariables.totalCoin = player.coins;
         for (let i = 0; i < player.betList.length; i++) {
             if (player.betList[i].betSuccess === 0) {
                 GlobalVariables.betList.push(copyObject(player.betList[i]));
-            } else if (player.betList[i].betSuccess === 1){
+            } else if (player.betList[i].betSuccess === 1) {
                 console.log("s:", player.betList[i]);
-            } else if (player.betList[i].betSuccess === -1){
+            } else if (player.betList[i].betSuccess === -1) {
                 console.log("f:", player.betList[i]);
             }
         }
