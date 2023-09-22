@@ -134,7 +134,7 @@ function rollDices(data, room) {
     //         temp_betList.push(copyObject(playerList[0].betList[j]));
     //     }
     // }
-    for (var i = 0; i < data.new_betList.length; i++) {
+    // for (var i = 0; i < data.new_betList.length; i++) {
         // var flag = false;
         // for (var j = 0; j < temp_betList.length; j++) {
         //     if (temp_betList[j].betSuccess === 0) {
@@ -163,8 +163,9 @@ function rollDices(data, room) {
         // if (!flag) {
         //     temp_betList.push(copyObject(data.betList[i]));
         // }
-        playerList[0].coins -= data.new_betList[i].betAmount;
-    }
+        // playerList[0].coins -= data.new_betList[i].betAmount;
+    // }
+    playerList[0].coins = data.coins;
     playerList[0].betList = copyObject(data.betList);
     console.log("player", playerList[0]);
     dice1 = Math.floor(Math.random() * 6 + 1);

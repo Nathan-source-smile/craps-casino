@@ -3,7 +3,6 @@ import PropositionArea from "./PropositionArea";
 import Doms from "./Doms";
 import { loadImgAtlas } from "./AssetLoader";
 import TopBar from "./TopBar";
-import { POINTS } from "./Common/Constants";
 import { ClientCommService } from "./ClientCommService";
 import Dice from './Dice';
 import GlobalVariables from "./GlobalVariables";
@@ -88,55 +87,16 @@ cc.Class({
     },
 
     onRollClick() {
-        // this._betList = [];
-        // let betIds = getRandomItems(this._availableBets, 3);
-        // betIds.forEach((id) => {
-        //     if ([5, 6, 16, 17].includes(id)) {
-        //         this._betList.push({
-        //             betId: id,
-        //             betAmount: 10,
-        //             betSuccess: 0,
-        //             contract: getRandomItems(POINTS, 1)[0],
-        //             limit: 100,
-        //         });
-        //     } else if (14 === id) {
-        //         this._betList.push({
-        //             betId: id,
-        //             betAmount: 10,
-        //             betSuccess: 0,
-        //             contract: getRandomItems(this._availableComes, 1)[0],
-        //             limit: 100,
-        //         });
-        //     } else if (15 === id) {
-        //         this._betList.push({
-        //             betId: id,
-        //             betAmount: 10,
-        //             betSuccess: 0,
-        //             contract: getRandomItems(this._availableDComes, 1)[0],
-        //             limit: 100,
-        //         });
-        //     } else {
-        //         this._betList.push({
-        //             betId: id,
-        //             betAmount: 10,
-        //             betSuccess: 0,
-        //             contract: 0,
-        //             limit: 100,
-        //         });
-        //     }
-        // });
-        // GlobalVariables.betList = copyObject(this._betList);
         if (GlobalVariables.betList.length === 0) {
             GlobalVariables.message = "Place your bet"
         } else {
-            ClientCommService.sendClaimRoll(0, GlobalVariables.betList, GlobalVariables.new_betList);
+            ClientCommService.sendClaimRoll(0, GlobalVariables.betList, GlobalVariables.new_betList, GlobalVariables.totalCoin);
             GlobalVariables.new_betList = [];
         }
     },
 
     // set result of roll
     setRollResult(dice1, dice2, player, gameState, availableBets, availableComes, availableDComes) {
-        // console.log(dice1);
         this.dice1.setNo(dice1);
         this.dice2.setNo(dice2);
         this.puck.setPuck(gameState);
@@ -144,13 +104,16 @@ cc.Class({
         this._availableBets = availableBets;
         this._availableComes = availableComes;
         this._availableDComes = availableDComes;
+
+        GlobalVariables.history = [];
+        GlobalVariables.gameState = gameState;
         GlobalVariables.availableBets = availableBets;
         GlobalVariables.availableComes = availableComes;
         GlobalVariables.availableDComes = availableDComes;
         GlobalVariables.betList = [];
         let delta = GlobalVariables.totalCoin - player.coins;
         if (delta < 0) {
-            GlobalVariables.message = "the player wins " + delta + " toros";
+            GlobalVariables.message = "the player wins " + delta.toFixed(2) + " toros";
         } else if (delta > 0) {
             GlobalVariables.message = "the casino wins";
         }
@@ -166,8 +129,41 @@ cc.Class({
         }
     },
 
-    onChipClick() {
+    onClearClick() {
+        GlobalVariables.message = "";
+        let temp_betList = [];
+        GlobalVariables.betList.forEach((betItem) => {
+            if (betItem.betId === 2 && betItem.contract !== 0) {
+                temp_betList.push(betItem);
+            } else if (betItem.betId === 3 && betItem.contract !== 0) {
+                temp_betList.push(betItem);
+            } else if (betItem.betId === 0 && GlobalVariables.gameState !== -1) {
+                temp_betList.push(betItem);
+            } else {
+                GlobalVariables.totalCoin += betItem.betAmount;
+            }
+        });
+        GlobalVariables.betList = [...temp_betList];
+    },
 
+    onUndoClick() {
+        if (GlobalVariables.history.length > 0) {
+            GlobalVariables.message = "";
+            let temp = GlobalVariables.history.pop();
+            let temp_betList = [];
+            GlobalVariables.betList.forEach((betItem) => {
+                if (betItem.betId === temp.betId && betItem.contract === temp.contract) {
+                    GlobalVariables.totalCoin += temp.betAmount;
+                    let rest = betItem.betAmount - temp.betAmount;
+                    if (rest > 0) {
+                        temp_betList.push({ ...betItem, betAmount: rest });
+                    }
+                } else {
+                    temp_betList.push(betItem);
+                }
+            });
+            GlobalVariables.betList = [...temp_betList];
+        }
     },
 
     // called every frame
@@ -175,16 +171,3 @@ cc.Class({
 
     },
 });
-
-function getRandomItems(arr, cnt) {
-    const randomItems = [];
-    const copyArr = arr.slice(); // Create a copy of the original array
-
-    for (let i = 0; i < cnt; i++) {
-        const randomIndex = Math.floor(Math.random() * copyArr.length);
-        const randomItem = copyArr.splice(randomIndex, 1)[0];
-        randomItems.push(randomItem);
-    }
-
-    return randomItems;
-}

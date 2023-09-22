@@ -1,5 +1,3 @@
-import Chip from "./Chip";
-import { ClientCommService } from "./ClientCommService";
 import Coin from "./Coin";
 import { POINTS } from "./Common/Constants";
 import GlobalVariables from "./GlobalVariables";
@@ -70,14 +68,14 @@ export default cc.Class({
         if (this._disable)
             return;
         if (!GlobalVariables.availableBets.includes(this.betId)) {
-            GlobalVariables.message = "Not available bet"
+            // GlobalVariables.message = "Not available bet"
         } else {
             if (14 === this.betId && !GlobalVariables.availableComes.includes(this.contract)) {
-                GlobalVariables.message = "Not available bet"
+                // GlobalVariables.message = "Not available bet"
                 return;
             }
             if (15 === this.betId && !GlobalVariables.availableDComes.includes(this.contract)) {
-                GlobalVariables.message = "Not available bet"
+                // GlobalVariables.message = "Not available bet"
                 return;
             }
             if (GlobalVariables.chip !== -1) {
@@ -85,6 +83,13 @@ export default cc.Class({
                     GlobalVariables.message = "Overflow the bet amount"
                     return;
                 }
+                GlobalVariables.history.push({
+                    betId: this.betId,
+                    betAmount: GlobalVariables.chip,
+                    betSuccess: 0,
+                    contract: this.contract,
+                    limit: this.limit,
+                });
                 let flag = true;
                 GlobalVariables.new_betList = GlobalVariables.new_betList.map((el, i) => {
                     if (el.betId === this.betId) {
@@ -148,7 +153,7 @@ export default cc.Class({
                 GlobalVariables.totalCoin -= GlobalVariables.chip;
                 GlobalVariables.message = "Put " + GlobalVariables.chip + " coin";
             } else {
-                GlobalVariables.message = "Please select a chip aaaaaaaaaaaaaaa";
+                GlobalVariables.message = "Please select a chip";
             }
         }
     },
@@ -262,6 +267,22 @@ export default cc.Class({
             this.dom.addChild(coin1);
             coin1.setPosition(0, 0);
         }
+        // if (this.betId === 2 && this.contract !== 0) {
+        //     let coins = this.node.getComponentsInChildren(Coin);
+        //     coins.forEach(element => {
+        //         let startPosition = this.dom.convertToNodeSpaceAR(cc.v2(480, 405));
+        //         element.node.setPosition(startPosition);
+        //         let targetPosition = cc.v2(0, 0);
+        //         this.moveToPos(element.node, 0.2, 0, 0)
+        //     });
+        // }
+    },
+
+    moveToPos(node, d, x, y) {
+        node.stopAllActions();
+        cc.tween(node)
+            .to(d, { x: x, y: y })
+            .start();
     },
 
     getbetItem(betId, contract) {

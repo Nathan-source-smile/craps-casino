@@ -1,6 +1,3 @@
-import { ClientCommService } from "./ClientCommService"
-import { Modal } from "./Modal";
-
 cc.Class({
     extends: cc.Component,
 

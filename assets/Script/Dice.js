@@ -1,6 +1,3 @@
-import GlobalVariables from "./GlobalVariables";
-
-
 export default cc.Class({
     extends: cc.Component,
 

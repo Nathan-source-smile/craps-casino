@@ -23,8 +23,8 @@ export const ClientCommService = {
     },
     
 
-    sendClaimRoll(user, betList, new_betList) {
-        this.send(MESSAGE_TYPE.CS_CLAIM_ROLL, { user, betList, new_betList }, 1);
+    sendClaimRoll(user, betList, new_betList, coins) {
+        this.send(MESSAGE_TYPE.CS_CLAIM_ROLL, { user, betList, new_betList, coins }, 1);
     },
 
     sendRestartMission() {

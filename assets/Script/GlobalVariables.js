@@ -12,6 +12,7 @@ const GlobalVariables = {
     availableDComes: [],
     totalCoin: 1000,
     avail: true,
+    history: [],
 };
 
 export default GlobalVariables;
