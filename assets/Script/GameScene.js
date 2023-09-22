@@ -129,7 +129,7 @@ cc.Class({
         if (GlobalVariables.betList.length === 0) {
             GlobalVariables.message = "Place your bet"
         } else {
-            ClientCommService.sendClaimRoll(0, GlobalVariables.new_betList);
+            ClientCommService.sendClaimRoll(0, GlobalVariables.betList, GlobalVariables.new_betList);
             GlobalVariables.new_betList = [];
         }
     },

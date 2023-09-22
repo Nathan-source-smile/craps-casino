@@ -127,36 +127,45 @@ function askUser() {
 // roll the dices
 function rollDices(data, room) {
     var user = data.user;
-    var temp_betList = [];
-    for (var j = 0; j < playerList[0].betList.length; j++) {
-        if (playerList[0].betList[j].betSuccess === 0) {
-            temp_betList.push(copyObject(playerList[0].betList[j]));
-        }
+    console.log("new", data.new_betList);
+    // var temp_betList = [];
+    // for (var j = 0; j < playerList[0].betList.length; j++) {
+    //     if (playerList[0].betList[j].betSuccess === 0) {
+    //         temp_betList.push(copyObject(playerList[0].betList[j]));
+    //     }
+    // }
+    for (var i = 0; i < data.new_betList.length; i++) {
+        // var flag = false;
+        // for (var j = 0; j < temp_betList.length; j++) {
+        //     if (temp_betList[j].betSuccess === 0) {
+        //         if (temp_betList[j].betId === data.betList[i].betId) {
+        //             if ([5, 6, 16, 17].includes(temp_betList[j].betId)) {
+        //                 if (temp_betList[j].contract === data.betList[i].contract) {
+        //                     temp_betList[j].betAmount += data.betList[i].betAmount;
+        //                     flag = true;
+        //                 }
+        //             } else {
+        //                 // var tbetItem = {
+        //                 //     betId: data.betList[i].betId,
+        //                 //     betAmount: temp_betList[j].betAmount + data.betList[i].betAmount,
+        //                 //     betSuccess: temp_betList[j].betSuccess,
+        //                 //     contract: temp_betList[j].contract,
+        //                 //     limit: temp_betList[j].limit,
+        //                 // }
+        //                 // temp_betList.push(copyObject(tbetItem));
+        //                 temp_betList[j].betAmount += data.betList[i].betAmount;
+        //                 flag = true;
+        //             }
+
+        //         }
+        //     }
+        // }
+        // if (!flag) {
+        //     temp_betList.push(copyObject(data.betList[i]));
+        // }
+        playerList[0].coins -= data.new_betList[i].betAmount;
     }
-    for (var i = 0; i < data.betList.length; i++) {
-        var flag = false;
-        for (var j = 0; j < temp_betList.length; j++) {
-            if (temp_betList[j].betSuccess === 0) {
-                if (temp_betList[j].betId === data.betList[i].betId) {
-                    // var tbetItem = {
-                    //     betId: data.betList[i].betId,
-                    //     betAmount: temp_betList[j].betAmount + data.betList[i].betAmount,
-                    //     betSuccess: temp_betList[j].betSuccess,
-                    //     contract: temp_betList[j].contract,
-                    //     limit: temp_betList[j].limit,
-                    // }
-                    // temp_betList.push(copyObject(tbetItem));
-                    temp_betList[j].betAmount += data.betList[i].betAmount,
-                    flag = true;
-                }
-            }
-        }
-        if (!flag) {
-            temp_betList.push(copyObject(data.betList[i]));
-        }
-        playerList[0].coins -= data.betList[i].betAmount;
-    }
-    playerList[0].betList = copyObject(temp_betList);
+    playerList[0].betList = copyObject(data.betList);
     console.log("player", playerList[0]);
     dice1 = Math.floor(Math.random() * 6 + 1);
     dice2 = Math.floor(Math.random() * 6 + 1);
@@ -288,31 +297,35 @@ function evalCoins() {
                 }
                 break;
             case BET_LIST[5].id:
-                if (betItem.contract === sum) {
-                    if ([6, 8].includes(betItem.contract)) {
-                        result += BET_LIST[5].pay_rate[0] * betItem.betAmount;
-                    } else if ([5, 9].includes(betItem.contract)) {
-                        result += BET_LIST[5].pay_rate[1] * betItem.betAmount;
-                    } else if ([4, 10].includes(betItem.contract)) {
-                        result += BET_LIST[5].pay_rate[2] * betItem.betAmount;
+                if (gameState !== -1) {
+                    if (betItem.contract === sum) {
+                        if ([6, 8].includes(betItem.contract)) {
+                            result += BET_LIST[5].pay_rate[0] * betItem.betAmount;
+                        } else if ([5, 9].includes(betItem.contract)) {
+                            result += BET_LIST[5].pay_rate[1] * betItem.betAmount;
+                        } else if ([4, 10].includes(betItem.contract)) {
+                            result += BET_LIST[5].pay_rate[2] * betItem.betAmount;
+                        }
+                        betItem.betSuccess = 1;
+                    } else if (7 === sum) {
+                        betItem.betSuccess = -1;
                     }
-                    betItem.betSuccess = 1;
-                } else if (7 === sum) {
-                    betItem.betSuccess = -1;
                 }
                 break;
             case BET_LIST[6].id:
-                if (betItem.contract === sum) {
-                    if ([6, 8].includes(betItem.contract)) {
-                        result += BET_LIST[6].pay_rate[0] * betItem.betAmount;
-                    } else if ([5, 9].includes(betItem.contract)) {
-                        result += BET_LIST[6].pay_rate[1] * betItem.betAmount;
-                    } else if ([4, 10].includes(betItem.contract)) {
-                        result += BET_LIST[6].pay_rate[2] * betItem.betAmount;
+                if (gameState !== -1) {
+                    if (betItem.contract === sum) {
+                        if ([6, 8].includes(betItem.contract)) {
+                            result += BET_LIST[6].pay_rate[0] * betItem.betAmount;
+                        } else if ([5, 9].includes(betItem.contract)) {
+                            result += BET_LIST[6].pay_rate[1] * betItem.betAmount;
+                        } else if ([4, 10].includes(betItem.contract)) {
+                            result += BET_LIST[6].pay_rate[2] * betItem.betAmount;
+                        }
+                        betItem.betSuccess = 1;
+                    } else if (7 === sum) {
+                        betItem.betSuccess = -1;
                     }
-                    betItem.betSuccess = 1;
-                } else if (7 === sum) {
-                    betItem.betSuccess = -1;
                 }
                 break;
             case BET_LIST[7].id:
@@ -422,31 +435,35 @@ function evalCoins() {
                 }
                 break;
             case BET_LIST[16].id:
-                if (betItem.contract === sum) {
-                    betItem.betSuccess = -1;
-                } else if (7 === sum) {
-                    if ([6, 8].includes(betItem.contract)) {
-                        result += BET_LIST[16].pay_rate[0] * betItem.betAmount;
-                    } else if ([5, 9].includes(betItem.contract)) {
-                        result += BET_LIST[16].pay_rate[1] * betItem.betAmount;
-                    } else if ([4, 10].includes(betItem.contract)) {
-                        result += BET_LIST[16].pay_rate[2] * betItem.betAmount;
+                if (gameState !== -1) {
+                    if (betItem.contract === sum) {
+                        betItem.betSuccess = -1;
+                    } else if (7 === sum) {
+                        if ([6, 8].includes(betItem.contract)) {
+                            result += BET_LIST[16].pay_rate[0] * betItem.betAmount;
+                        } else if ([5, 9].includes(betItem.contract)) {
+                            result += BET_LIST[16].pay_rate[1] * betItem.betAmount;
+                        } else if ([4, 10].includes(betItem.contract)) {
+                            result += BET_LIST[16].pay_rate[2] * betItem.betAmount;
+                        }
+                        betItem.betSuccess = 1;
                     }
-                    betItem.betSuccess = 1;
                 }
                 break;
             case BET_LIST[17].id:
-                if (betItem.contract === sum) {
-                    betItem.betSuccess = -1;
-                } else if (7 === sum) {
-                    if ([6, 8].includes(betItem.contract)) {
-                        result += BET_LIST[17].pay_rate[0] * betItem.betAmount;
-                    } else if ([5, 9].includes(betItem.contract)) {
-                        result += BET_LIST[17].pay_rate[1] * betItem.betAmount;
-                    } else if ([4, 10].includes(betItem.contract)) {
-                        result += BET_LIST[17].pay_rate[2] * betItem.betAmount;
+                if (gameState !== -1) {
+                    if (betItem.contract === sum) {
+                        betItem.betSuccess = -1;
+                    } else if (7 === sum) {
+                        if ([6, 8].includes(betItem.contract)) {
+                            result += BET_LIST[17].pay_rate[0] * betItem.betAmount;
+                        } else if ([5, 9].includes(betItem.contract)) {
+                            result += BET_LIST[17].pay_rate[1] * betItem.betAmount;
+                        } else if ([4, 10].includes(betItem.contract)) {
+                            result += BET_LIST[17].pay_rate[2] * betItem.betAmount;
+                        }
+                        betItem.betSuccess = 1;
                     }
-                    betItem.betSuccess = 1;
                 }
                 break;
             case BET_LIST[18].id:
