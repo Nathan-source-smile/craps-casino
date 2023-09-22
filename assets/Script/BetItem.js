@@ -3,7 +3,6 @@ import { ClientCommService } from "./ClientCommService";
 import Coin from "./Coin";
 import GlobalVariables from "./GlobalVariables";
 
-
 export default cc.Class({
     extends: cc.Component,
 
@@ -24,6 +23,7 @@ export default cc.Class({
         _limit: 100,
 
         _disable: false,
+
     },
 
     onLoad() {
@@ -127,7 +127,7 @@ export default cc.Class({
                 GlobalVariables.totalCoin -= GlobalVariables.chip;
                 GlobalVariables.message = "Put " + GlobalVariables.chip + " coin";
             } else {
-                GlobalVariables.message = "Please select a chip";
+                GlobalVariables.message = "Please select a chip aaaaaaaaaaaaaaa";
             }
         }
     },

@@ -21,6 +21,7 @@ export const ClientCommService = {
     send(messageType, data, room) {
         ServerCommService.onReceiveMessage(messageType, data, room);
     },
+    
 
     sendClaimRoll(user, betList, new_betList) {
         this.send(MESSAGE_TYPE.CS_CLAIM_ROLL, { user, betList, new_betList }, 1);

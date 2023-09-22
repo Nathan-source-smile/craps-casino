@@ -9,8 +9,12 @@ cc.Class({
             default: null,
             type: cc.Label
         },
+        // box: {
+        //     default: null,
+        //     type: cc.Node,
+        // },
         boxWidth: {
-            default: 100,
+            default: 80,
             type: cc.Integer
         },
         boxHeight: {
@@ -31,32 +35,45 @@ cc.Class({
         this.label.horizontalAlign = cc.Label.HorizontalAlign.LEFT;
         this.label.verticalAlign = cc.Label.VerticalAlign.CENTER;
 
-        this.startFlowAnimation();
+        this.startPosition = this.node.x;
+
+        // this.startFlowAnimation();
+
         this.labelFlow();
+        // this.animation();
     },
 
     // getPosition() {
     //     return this.label.node.position;
     // },
 
+    // animation() {
+    //     console.log(contentWidth, this.boxWidth);
+    //     if ( contentWidth > this.boxWidth ){
+    //          this.labelFlow();
+    //     }
+    // },
+
     labelFlow() {
         const contentWidth = this.label.node.width;
-        const totalDistance = this.boxWidth + contentWidth;
+        const totalDistance = contentWidth - this.boxWidth;
         const duration = totalDistance / this.flowSpeed;
+        
 
-        // let pos = this.getPosition();
-        // const startPosition = cc.v2(pos.x, pos.y)
-    
+        console.log(contentWidth);
 
-        const moveAction = cc.moveBy(duration, cc.v2(-totalDistance, 0));
-        const resetAction = cc.callFunc(() => {
-            this.label.node.x = this.startPosition;
-            this.labelFlow();
-        });
+        if(this.label.length > 20) {
+            const moveAction = cc.moveBy(duration, cc.v2(-totalDistance, 0));
+            const resetAction = cc.callFunc(() => {
+                this.label.node.x = this.startPosition;
+                this.labelFlow();
+            });
 
-        const sequence = cc.sequence(moveAction, resetAction);
-        this.label.node.runAction(sequence);
+            const sequence = cc.sequence(moveAction, resetAction);
+            this.label.node.runAction(sequence);
+        }
     },
+
     
 
     // startFlowAnimation() {
