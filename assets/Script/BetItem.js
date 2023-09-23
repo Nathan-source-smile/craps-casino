@@ -14,23 +14,27 @@ export default cc.Class({
         coin25: cc.Prefab,
         coin50: cc.Prefab,
         coin100: cc.Prefab,
+        startDom: cc.Node,
 
         betId: -1,
         _betAmount: 0,
+        _lastAmount: 0,
         _betSuccess: 0,
         contract: 0,
         _limit: 100,
 
         _disable: false,
-        _updateState: false,
-
+        _updateState: true,
     },
 
     onLoad() {
         this.hover.active = false;
+        this._updateState = true;
         if ([2, 3].includes(this.betId) && this.contract !== 0) {
             this._disable = true;
         }
+        this._betAmount = 0;
+        this._lastAmount = 0;
         // this.start1();
     },
 
@@ -206,12 +210,69 @@ export default cc.Class({
                 if (el.betId === this.betId) {
                     if ([2, 3, 5, 6, 14, 15, 16, 17].includes(el.betId)) {
                         if (el.contract === this.contract) {
-                            flag = false;
-                            this._betAmount = el.betAmount;
-                            this.removeCoins();
-                            this.addCoins();
+                            if (2 === this.betId && POINTS.includes(this.contract)) {
+                                flag = false;
+                                let rest = el.betAmount - this._betAmount;
+                                if (rest > 0) {
+                                    console.log(rest);
+                                    this._betAmount = el.betAmount;
+                                    console.log("move", el.betAmount, this._betAmount, rest);
+                                    //console.log(this);
+                                    this._updateState = false;
+                                    let startPosition = cc.v2(335, 411);
+                                    this.startDom.setPosition(startPosition);
+                                    this.addCoins(rest, this.startDom);
+                                    let endPosition = this.node.convertToWorldSpaceAR(this.dom.position);
+                                    this.startDom.stopAllActions();
+                                    cc.tween(this.startDom)
+                                        .to(0.8, { x: endPosition.x, y: endPosition.y })
+                                        .call(() => {
+                                            console.log(this);
+                                            this.startDom.removeAllChildren();
+                                            this.removeCoins();
+                                            this.addCoins();
+                                            console.log("call", el.betAmount, this._betAmount);
+                                            this._updateState = true;
+                                        })
+                                        .start();
+                                }
+                            }
+                            else if (3 === this.betId && POINTS.includes(this.contract)) {
+                                flag = false;
+                                let rest = el.betAmount - this._betAmount;
+                                if (rest > 0) {
+                                    console.log(rest);
+                                    this._betAmount = el.betAmount;
+                                    console.log("move", el.betAmount, this._betAmount, rest);
+                                    //console.log(this);
+                                    this._updateState = false;
+                                    let startPosition = cc.v2(227, 482);
+                                    this.startDom.setPosition(startPosition);
+                                    this.addCoins(rest, this.startDom);
+                                    let endPosition = this.node.convertToWorldSpaceAR(this.dom.position);
+                                    this.startDom.stopAllActions();
+                                    cc.tween(this.startDom)
+                                        .to(0.8, { x: endPosition.x, y: endPosition.y })
+                                        .call(() => {
+                                            console.log(this);
+                                            this.startDom.removeAllChildren();
+                                            this.removeCoins();
+                                            this.addCoins();
+                                            console.log("call", el.betAmount, this._betAmount);
+                                            this._updateState = true;
+                                        })
+                                        .start();
+                                }
+                            }
+                            else {
+                                flag = false;
+                                this._betAmount = el.betAmount;
+                                this.removeCoins();
+                                this.addCoins();
+                            }
                         }
-                    } else {
+                    }
+                    else {
                         flag = false;
                         this._betAmount = el.betAmount;
                         this.removeCoins();
@@ -266,8 +327,14 @@ export default cc.Class({
         });
     },
 
-    addCoins() {
-        let a100 = Math.floor(this._betAmount / 100); let b100 = this._betAmount % 100;
+    addCoins(amount, dom) {
+        if (amount === undefined) {
+            amount = this._betAmount;
+        }
+        if (dom === undefined) {
+            dom = this.dom;
+        }
+        let a100 = Math.floor(amount / 100); let b100 = amount % 100;
         let a50 = Math.floor(b100 / 50); let b50 = b100 % 50;
         let a25 = Math.floor(b50 / 25); let b25 = b50 % 25;
         let a10 = Math.floor(b25 / 10); let b10 = b25 % 10;
@@ -277,37 +344,37 @@ export default cc.Class({
         for (let i = 0; i < a100; i++) {
             const coin100 = cc.instantiate(this.coin100);
             coin100.scale = cc.v2(0.3, 0.3);
-            this.dom.addChild(coin100);
+            dom.addChild(coin100);
             coin100.setPosition(5, 0);
         }
         for (let i = 0; i < a50; i++) {
             const coin50 = cc.instantiate(this.coin50);
             coin50.scale = cc.v2(0.3, 0.3);
-            this.dom.addChild(coin50);
+            dom.addChild(coin50);
             coin50.setPosition(4, 0);
         }
         for (let i = 0; i < a25; i++) {
             const coin25 = cc.instantiate(this.coin25);
             coin25.scale = cc.v2(0.3, 0.3);
-            this.dom.addChild(coin25);
+            dom.addChild(coin25);
             coin25.setPosition(3, 0);
         }
         for (let i = 0; i < a10; i++) {
             const coin10 = cc.instantiate(this.coin10);
             coin10.scale = cc.v2(0.3, 0.3);
-            this.dom.addChild(coin10);
+            dom.addChild(coin10);
             coin10.setPosition(2, 0);
         }
         for (let i = 0; i < a5; i++) {
             const coin5 = cc.instantiate(this.coin5);
             coin5.scale = cc.v2(0.3, 0.3);
-            this.dom.addChild(coin5);
+            dom.addChild(coin5);
             coin5.setPosition(1, 0);
         }
         for (let i = 0; i < a1; i++) {
             const coin1 = cc.instantiate(this.coin1);
             coin1.scale = cc.v2(0.3, 0.3);
-            this.dom.addChild(coin1);
+            dom.addChild(coin1);
             coin1.setPosition(0, 0);
         }
         // if (this.betId === 2 && this.contract !== 0) {
