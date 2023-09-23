@@ -22,6 +22,7 @@ export default cc.Class({
         _limit: 100,
 
         _disable: false,
+        _updateState: false,
 
     },
 
@@ -30,9 +31,19 @@ export default cc.Class({
         if ([2, 3].includes(this.betId) && this.contract !== 0) {
             this._disable = true;
         }
+        // this.start1();
     },
 
     start1() {
+        console.log("111");
+        let startPosition = this.dom.convertToNodeSpaceAR(cc.v2(480, 405));
+        const coin100 = cc.instantiate(this.coin100);
+        coin100.scale = cc.v2(0.3, 0.3);
+        this.dom.addChild(coin100);
+        coin100.setPosition(5, 0);
+        coin100.setPosition(startPosition);
+        let targetPosition = cc.v2(0, 0);
+        this.moveToPos(coin100, 0.2, 0, 0)
     },
 
     onMouseMove() {
@@ -90,11 +101,35 @@ export default cc.Class({
                     contract: this.contract,
                     limit: this.limit,
                 });
-                const coin100 = cc.instantiate(this.coin100);
-                coin100.scale = cc.v2(0.3, 0.3);
-                this.dom.addChild(coin100);
-                coin100.setPosition(0, 10);
-                this.moveToPos(coin100, 0.2, 0, 0);
+                this._updateState = false;
+                let coin;
+                switch (GlobalVariables.chip) {
+                    case 1:
+                        coin = cc.instantiate(this.coin1);
+                        break;
+                    case 5:
+                        coin = cc.instantiate(this.coin5);
+                        break;
+                    case 10:
+                        coin = cc.instantiate(this.coin10);
+                        break;
+                    case 25:
+                        coin = cc.instantiate(this.coin25);
+                        break;
+                    case 50:
+                        coin = cc.instantiate(this.coin50);
+                        break;
+                    case 100:
+                        coin = cc.instantiate(this.coin100);
+                        break;
+                    default:
+                        coin = cc.instantiate(this.coin1);
+                        break;
+                }
+                coin.scale = cc.v2(0.3, 0.3);
+                this.dom.addChild(coin);
+                coin.setPosition(cc.v2(0, 10));
+                this.moveToPos(coin, 0.2, 0, 0);
                 let flag = true;
                 GlobalVariables.new_betList = GlobalVariables.new_betList.map((el, i) => {
                     if (el.betId === this.betId) {
@@ -165,59 +200,61 @@ export default cc.Class({
 
     // called every frame
     update: function (dt) {
-        let flag = true;
-        GlobalVariables.betList.forEach((el) => {
-            if (el.betId === this.betId) {
-                if ([2, 3, 5, 6, 14, 15, 16, 17].includes(el.betId)) {
-                    if (el.contract === this.contract) {
+        if (this._updateState) {
+            let flag = true;
+            GlobalVariables.betList.forEach((el) => {
+                if (el.betId === this.betId) {
+                    if ([2, 3, 5, 6, 14, 15, 16, 17].includes(el.betId)) {
+                        if (el.contract === this.contract) {
+                            flag = false;
+                            this._betAmount = el.betAmount;
+                            this.removeCoins();
+                            this.addCoins();
+                        }
+                    } else {
                         flag = false;
                         this._betAmount = el.betAmount;
                         this.removeCoins();
                         this.addCoins();
                     }
+                }
+            });
+            if (flag) {
+                this.removeCoins();
+                this._betAmount = 0;
+            }
+            let res;
+            if (this.betId === 4) {
+                res = this.getbetItem(0, 0);
+                if (res) {
+                    this._limit = res.betAmount * 3;
                 } else {
-                    flag = false;
-                    this._betAmount = el.betAmount;
-                    this.removeCoins();
-                    this.addCoins();
+                    this._limit = 0;
                 }
             }
-        });
-        if (flag) {
-            this.removeCoins();
-            this._betAmount = 0;
-        }
-        let res;
-        if (this.betId === 4) {
-            res = this.getbetItem(0, 0);
-            if (res) {
-                this._limit = res.betAmount * 3;
-            } else {
-                this._limit = 0;
+            if (this.betId === 13) {
+                res = this.getbetItem(1, 0);
+                if (res) {
+                    this._limit = res.betAmount * 3;
+                } else {
+                    this._limit = 0;
+                }
             }
-        }
-        if (this.betId === 13) {
-            res = this.getbetItem(1, 0);
-            if (res) {
-                this._limit = res.betAmount * 3;
-            } else {
-                this._limit = 0;
+            if (this.betId === 14 && POINTS.includes(this.contract)) {
+                res = this.getbetItem(2, this.contract);
+                if (res) {
+                    this._limit = res.betAmount * 3;
+                } else {
+                    this._limit = 0;
+                }
             }
-        }
-        if (this.betId === 14 && POINTS.includes(this.contract)) {
-            res = this.getbetItem(2, this.contract);
-            if (res) {
-                this._limit = res.betAmount * 3;
-            } else {
-                this._limit = 0;
-            }
-        }
-        if (this.betId === 15 && POINTS.includes(this.contract)) {
-            res = this.getbetItem(3, this.contract);
-            if (res) {
-                this._limit = res.betAmount * 3;
-            } else {
-                this._limit = 0;
+            if (this.betId === 15 && POINTS.includes(this.contract)) {
+                res = this.getbetItem(3, this.contract);
+                if (res) {
+                    this._limit = res.betAmount * 3;
+                } else {
+                    this._limit = 0;
+                }
             }
         }
     },
@@ -288,6 +325,7 @@ export default cc.Class({
         node.stopAllActions();
         cc.tween(node)
             .to(d, { x: x, y: y })
+            .call(() => { this._updateState = true; })
             .start();
     },
 
