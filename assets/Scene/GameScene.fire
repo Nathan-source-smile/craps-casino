@@ -38760,7 +38760,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150,
+      "width": 200,
       "height": 50
     },
     "_anchorPoint": {
@@ -38822,7 +38822,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 104.51,
+      "width": 0,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -38874,8 +38874,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Place your bet",
-    "_N$string": "Place your bet",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 18,
     "_lineHeight": 40,
     "_enableWrapText": true,

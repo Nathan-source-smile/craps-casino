@@ -97,6 +97,7 @@ cc.Class({
 
     // set result of roll
     setRollResult(dice1, dice2, player, gameState, availableBets, availableComes, availableDComes) {
+        GlobalVariables.message = "Place your bet";
         this.dice1.setNo(dice1);
         this.dice2.setNo(dice2);
         this.puck.setPuck(gameState);
@@ -131,7 +132,7 @@ cc.Class({
     },
 
     onClearClick() {
-        GlobalVariables.message = "";
+        GlobalVariables.message = "Place your bet";
         let temp_betList = [];
         GlobalVariables.deleted_betList = [];
         // GlobalVariables.history = [];
@@ -155,7 +156,7 @@ cc.Class({
 
     onUndoClick() {
         if (GlobalVariables.history.length > 0) {
-            GlobalVariables.message = "";
+            GlobalVariables.message = "Place your bet";
             let temp = GlobalVariables.history.pop();
             console.log(temp);
             let temp_betList = [];

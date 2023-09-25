@@ -64,7 +64,7 @@ export const BET_LIST = [
     {
         id: 5,
         name: "PLACE WIN",
-        pay_rate: [2.7, 2.4, 2.8],
+        pay_rate: [2.17, 2.4, 2.5],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
         rule: ["9:6 on making point", "7:5 on making point", "7:6 on making point", "7:6 on making point", "7:5 on making point", "9:6 on making point"]
