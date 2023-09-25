@@ -64,10 +64,10 @@ export const BET_LIST = [
     {
         id: 5,
         name: "PLACE WIN",
-        pay_rate: [2.17, 2.4, 2.5],
+        pay_rate: [2.17, 2.4, 2.8],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
-        rule: ["9:6 on making point", "7:5 on making point", "7:6 on making point", "7:6 on making point", "7:5 on making point", "9:6 on making point"]
+        rule: ["9:5 on making point", "7:5 on making point", "7:6 on making point", "7:6 on making point", "7:5 on making point", "9:6 on making point"]
     },
     {
         id: 6,
@@ -160,7 +160,7 @@ export const BET_LIST = [
     {
         id: 17,
         name: "LAY",
-        pay_rate: [1.79, 1.63, 1.475],
+        pay_rate: [1.78, 1.62, 1.47],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
         rule: ["1:2 on 7 before point. Vig. 5% of win.", "2:3 on 7 before point. Vig. 5% of win.", "5:6 on 7 before point. Vig. 5% of win.", "5:6 on 7 before point. Vig. 5% of win.", "2:3 on 7 before point. Vig. 5% of win.", "1:2 on 7 before point. Vig. 5% of win.",]

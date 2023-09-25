@@ -545,11 +545,11 @@ function evalCoins() {
 function getAvailBets() {
     availableComes = [];
     availableDComes = [];
-    availableBets = [18, 19, 20, 21, 22, 23, 24, 5, 6, 16, 17, 9, 10, 11, 12, 25];
+    availableBets = [18, 19, 20, 21, 22, 23, 24, 5, 6, 16, 17, 9, 10, 11, 12, 25, 7, 8];
     if (gameState === -1) {
         availableBets.push(0, 1);
     } else {
-        availableBets.push(2, 3, 7, 8);
+        availableBets.push(2, 3);
         for (var i = 0; i < playerList[0].betList.length; i++) {
             if (playerList[0].betList[i].betSuccess === 0) {
                 if (playerList[0].betList[i].betId === 0) {
