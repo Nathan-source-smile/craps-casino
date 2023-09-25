@@ -57,14 +57,14 @@ export default cc.Class({
     },
 
     onMouseMove() {
+        GlobalVariables.currentBetId = this.betId;
+        GlobalVariables.currentBetContract = this.contract;
+        GlobalVariables.currentBetMax = this._limit;
         if (this._disable)
             return;
         if (!GlobalVariables.availableBets.includes(this.betId)) {
             GlobalVariables.avail = false;
         } else {
-            GlobalVariables.currentBetId = this.betId;
-            GlobalVariables.currentBetContract = this.contract;
-            GlobalVariables.currentBetMax = this._limit;
             if (14 === this.betId && !GlobalVariables.availableComes.includes(this.contract)) {
                 GlobalVariables.avail = false;
                 return;
