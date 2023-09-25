@@ -25,6 +25,7 @@ export default cc.Class({
 
         _disable: false,
         _updateState: true,
+        _fake: false,
     },
 
     onLoad() {
@@ -32,6 +33,11 @@ export default cc.Class({
         this._updateState = true;
         if ([2, 3].includes(this.betId) && this.contract !== 0) {
             this._disable = true;
+        } else {
+            this._disable = false;
+        }
+        if (["Don'tPassBar1", "anycraps_fake", "straightup11_fake"].includes(this.node.name)) {
+            this._fake = true;
         }
         this._betAmount = 0;
         this._lastAmount = 0;
@@ -73,6 +79,7 @@ export default cc.Class({
     },
 
     onMouseLeave() {
+        // console.log(this.node.name)
         if (this._disable)
             return;
         // Handle hover leave event
@@ -133,7 +140,19 @@ export default cc.Class({
                 coin.scale = cc.v2(0.3, 0.3);
                 this.dom.addChild(coin);
                 coin.setPosition(cc.v2(0, 10));
-                this.moveToPos(coin, 0.2, 0, 0);
+                if (this._fake) {
+                    this.startDom.opacity = 0;
+                    coin.stopAllActions();
+                    cc.tween(coin)
+                        .to(0.2, { x: 0, y: 0 })
+                        .call(() => {
+                            this._updateState = true;
+                            this.startDom.opacity = 255;
+                        })
+                        .start();
+                } else {
+                    this.moveToPos(coin, 0.2, 0, 0);
+                }
                 let flag = true;
                 GlobalVariables.new_betList = GlobalVariables.new_betList.map((el, i) => {
                     if (el.betId === this.betId) {

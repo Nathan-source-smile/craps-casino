@@ -13,6 +13,7 @@ const GlobalVariables = {
     totalCoin: 1000,
     avail: true,
     history: [],
+    deleted_betList:[],
 };
 
 export default GlobalVariables;

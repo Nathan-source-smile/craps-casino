@@ -125,6 +125,7 @@ cc.Class({
                 console.log("s:", player.betList[i]);
             } else if (player.betList[i].betSuccess === -1) {
                 console.log("f:", player.betList[i]);
+                GlobalVariables.message = "the casino wins";
             }
         }
     },
@@ -132,7 +133,8 @@ cc.Class({
     onClearClick() {
         GlobalVariables.message = "";
         let temp_betList = [];
-        GlobalVariables.history = [];
+        GlobalVariables.deleted_betList = [];
+        // GlobalVariables.history = [];
         GlobalVariables.betList.forEach((betItem) => {
             if (betItem.betId === 2 && betItem.contract !== 0) {
                 temp_betList.push(betItem);
@@ -141,9 +143,13 @@ cc.Class({
             } else if (betItem.betId === 0 && GlobalVariables.gameState !== -1) {
                 temp_betList.push(betItem);
             } else {
+                GlobalVariables.deleted_betList.push(betItem);
                 GlobalVariables.totalCoin += betItem.betAmount;
             }
         });
+        if (GlobalVariables.deleted_betList.length > 0) {
+            GlobalVariables.history.push("deleted");
+        }
         GlobalVariables.betList = [...temp_betList];
     },
 
@@ -151,19 +157,38 @@ cc.Class({
         if (GlobalVariables.history.length > 0) {
             GlobalVariables.message = "";
             let temp = GlobalVariables.history.pop();
+            console.log(temp);
             let temp_betList = [];
-            GlobalVariables.betList.forEach((betItem) => {
-                if (betItem.betId === temp.betId && betItem.contract === temp.contract) {
-                    GlobalVariables.totalCoin += temp.betAmount;
-                    let rest = betItem.betAmount - temp.betAmount;
-                    if (rest > 0) {
-                        temp_betList.push({ ...betItem, betAmount: rest });
+            if (temp === "deleted") {
+                GlobalVariables.deleted_betList.forEach((deleted) => {
+                    // let flag = true;
+                    // GlobalVariables.betList.forEach(betItem => {
+                    //     if (betItem.betId === deleted.betId && betItem.contract === deleted.contract) {
+                    //         GlobalVariables.totalCoin -= deleted.betAmount;
+                    //         let rest = betItem.betAmount + deleted.betAmount;
+                    //         if (rest > 0) {
+                    //             flag = false;
+                    //             temp_betList.push({ ...betItem, betAmount: rest });
+                    //         }
+                    //     }
+                    // });
+                    GlobalVariables.totalCoin -= deleted.betAmount;
+                    GlobalVariables.betList.push(deleted);
+                });
+            } else {
+                GlobalVariables.betList.forEach((betItem) => {
+                    if (betItem.betId === temp.betId && betItem.contract === temp.contract) {
+                        GlobalVariables.totalCoin += temp.betAmount;
+                        let rest = betItem.betAmount - temp.betAmount;
+                        if (rest > 0) {
+                            temp_betList.push({ ...betItem, betAmount: rest });
+                        }
+                    } else {
+                        temp_betList.push(betItem);
                     }
-                } else {
-                    temp_betList.push(betItem);
-                }
-            });
-            GlobalVariables.betList = [...temp_betList];
+                });
+                GlobalVariables.betList = [...temp_betList];
+            }
         }
     },
 
