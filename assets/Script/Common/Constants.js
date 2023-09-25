@@ -67,7 +67,7 @@ export const BET_LIST = [
         pay_rate: [2.17, 2.4, 2.8],
         commission: 0,
         type: BET_TYPES.MULTI_ROLL,
-        rule: ["9:5 on making point", "7:5 on making point", "7:6 on making point", "7:6 on making point", "7:5 on making point", "9:6 on making point"]
+        rule: ["9:5 on making point", "7:5 on making point", "7:6 on making point", "7:6 on making point", "7:5 on making point", "9:5 on making point"]
     },
     {
         id: 6,
