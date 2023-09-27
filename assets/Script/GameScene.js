@@ -117,9 +117,9 @@ cc.Class({
         GlobalVariables.betList = [];
         let delta = GlobalVariables.totalCoin - player.coins;
         if (delta < 0) {
-            GlobalVariables.message = "the player wins " + delta.toFixed(2) + " toros";
+            GlobalVariables.message = "The player wins " + delta.toFixed(2) + " toros";
         } else if (delta > 0) {
-            GlobalVariables.message = "the casino wins";
+            GlobalVariables.message = "The casino wins";
         }
         GlobalVariables.totalCoin = player.coins;
         for (let i = 0; i < player.betList.length; i++) {
@@ -129,7 +129,7 @@ cc.Class({
                 console.log("s:", player.betList[i]);
             } else if (player.betList[i].betSuccess === -1) {
                 console.log("f:", player.betList[i]);
-                GlobalVariables.message = "the casino wins";
+                GlobalVariables.message = "The casino wins";
             }
         }
     },
